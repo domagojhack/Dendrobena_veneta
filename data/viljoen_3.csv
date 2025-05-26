@@ -1,0 +1,6 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Cocoon_Production,0.1,cocoons/worm/day,65_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Cocoon_Production,0.4,cocoons/worm/day,110_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Cocoon_Production,0.4,cocoons/worm/day,130_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Cocoon_Production,0.2,cocoons/worm/day,170_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Cocoon_Production,0.43,cocoons/worm/day,200_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991

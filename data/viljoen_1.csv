@@ -1,0 +1,7 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Biomass,23.9,mg,0_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Biomass,250,mg,30_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Biomass,800,mg,60_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Biomass,2000,mg,100_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Biomass,2300,mg,140_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Biomass,2200,mg,200_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991

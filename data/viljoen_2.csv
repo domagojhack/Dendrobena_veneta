@@ -1,0 +1,5 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Maturation,10,%,20_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Maturation,50,%,30_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Maturation,80,%,60_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Maturation,100,%,130_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991

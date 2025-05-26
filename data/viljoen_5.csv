@@ -1,0 +1,7 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Incubation_Period_Count,10,cocoons,15-20_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Incubation_Period_Count,50,cocoons,20-30_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Incubation_Period_Count,200,cocoons,30-40_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Incubation_Period_Count,300,cocoons,40-50_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Incubation_Period_Count,50,cocoons,50-60_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991
+Incubation_Period_Count,33,cocoons,60-80_days,25,Cattle_manure,75-80%,Viljoen_et_al_1991

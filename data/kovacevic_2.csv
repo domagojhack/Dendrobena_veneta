@@ -1,0 +1,7 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Juvenile_Mass,20,mg,0_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,19,mg,1_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,18.5,mg,5_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,18,mg,25_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,16.8,mg,50_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,14.5,mg,100_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023

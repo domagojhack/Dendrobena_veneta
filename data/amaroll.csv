@@ -1,0 +1,5 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Telomerase_Activity,100,attomoles/ug_protein,24_hours_non_irradiated,22,Not_specified,Not_specified,Amaroli_et_al_2018
+Telomerase_Activity,100,attomoles/ug_protein,48_hours_non_irradiated,22,Not_specified,Not_specified,Amaroli_et_al_2018
+Telomerase_Activity,100,attomoles/ug_protein,72_hours_non_irradiated,22,Not_specified,Not_specified,Amaroli_et_al_2018
+Telomerase_Activity,50,attomoles/ug_protein,96_hours_non_irradiated,22,Not_specified,Not_specified,Amaroli_et_al_2018

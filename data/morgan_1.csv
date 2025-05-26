@@ -1,0 +1,9 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Cocoons_Per_Worm,0.5,cocoons/worm,1_week,Not_specified,Not_specified,Not_specified,Plytycz_Morgan_2015
+Cocoons_Per_Worm,1.0,cocoons/worm,2_weeks,Not_specified,Not_specified,Not_specified,Plytycz_Morgan_2015
+Cocoons_Per_Worm,1.5,cocoons/worm,3_weeks,Not_specified,Not_specified,Not_specified,Plytycz_Morgan_2015
+Cocoons_Per_Worm,2.0,cocoons/worm,4_weeks,Not_specified,Not_specified,Not_specified,Plytycz_Morgan_2015
+Cocoons_Per_Worm,2.5,cocoons/worm,5_weeks,Not_specified,Not_specified,Not_specified,Plytycz_Morgan_2015
+Cocoons_Per_Worm,2.5,cocoons/worm,6_weeks,Not_specified,Not_specified,Not_specified,Plytycz_Morgan_2015
+Cocoons_Per_Worm,2.0,cocoons/worm,7_weeks,Not_specified,Not_specified,Not_specified,Plytycz_Morgan_2015
+Cocoons_Per_Worm,2.0,cocoons/worm,8_weeks,Not_specified,Not_specified,Not_specified,Plytycz_Morgan_2015

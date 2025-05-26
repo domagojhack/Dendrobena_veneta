@@ -1,0 +1,11 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Relative_Weight,100,%,0%_OMW_CS_7_days,20,Artificial_soil,40%,Trigui_et_al_2022
+Relative_Weight,95,%,5%_OMW_CS_7_days,20,Artificial_soil+OMW_CS,40%,Trigui_et_al_2022
+Relative_Weight,90,%,10%_OMW_CS_7_days,20,Artificial_soil+OMW_CS,40%,Trigui_et_al_2022
+Relative_Weight,80,%,25%_OMW_CS_7_days,20,Artificial_soil+OMW_CS,40%,Trigui_et_al_2022
+Relative_Weight,60,%,50%_OMW_CS_7_days,20,Artificial_soil+OMW_CS,40%,Trigui_et_al_2022
+Relative_Weight,100,%,0%_OMW_CS_28_days,20,Artificial_soil,40%,Trigui_et_al_2022
+Relative_Weight,90,%,5%_OMW_CS_28_days,20,Artificial_soil+OMW_CS,40%,Trigui_et_al_2022
+Relative_Weight,85,%,10%_OMW_CS_28_days,20,Artificial_soil+OMW_CS,40%,Trigui_et_al_2022
+Relative_Weight,60,%,25%_OMW_CS_28_days,20,Artificial_soil+OMW_CS,40%,Trigui_et_al_2022
+Relative_Weight,55,%,50%_OMW_CS_28_days,20,Artificial_soil+OMW_CS,40%,Trigui_et_al_2022

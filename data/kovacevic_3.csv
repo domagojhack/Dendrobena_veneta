@@ -1,0 +1,15 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Juvenile_Mass,0.02,g,0_days_0_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.1,g,14_days_0_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.3,g,28_days_0_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.7,g,42_days_0_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,1.2,g,63_days_0_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,1.8,g,84_days_0_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,1.9,g,105_days_0_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.0145,g,0_days_100_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.05,g,14_days_100_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.15,g,28_days_100_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.3,g,42_days_100_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.5,g,63_days_100_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,0.8,g,84_days_100_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023
+Juvenile_Mass,1.0,g,105_days_100_mg/kg,20,Artificial_soil,50%_WHC,Kovacevic_et_al_2023

@@ -1,0 +1,27 @@
+Data_Type,Value,Units,Condition_Temperature_C,Condition_Substrate,Condition_Moisture,Source
+Age_at_birth,0,days,25,Cattle manure,75-80%,Viljoen et al. 1991
+Age_at_puberty,65,days,25,Cattle manure,75-80%,Viljoen et al. 1991
+Maximum_body_weight,2200,mg,25,Cattle manure,75-80%,Viljoen et al. 1991
+Maximum_body_weight_individual,3640,mg,25,Cattle manure,75-80%,Viljoen et al. 1991
+Maximum_cocoon_production_rate,0.43,cocoons/worm/day,25,Cattle manure,75-80%,Viljoen et al. 1991
+Mean_cocoon_production_rate,0.28,cocoons/worm/day,25,Cattle manure,75-80%,Viljoen et al. 1991
+Hatching_success,19.6,%,25,Cattle manure,75-80%,Viljoen et al. 1991
+Mean_incubation_period,42.1,days,25,Cattle manure,75-80%,Viljoen et al. 1991
+Hatchlings_per_cocoon,1.1,hatchlings/cocoon,25,Cattle manure,75-80%,Viljoen et al. 1991
+Growth_Day_0,23.9,mg,25,Cattle manure,75-80%,Viljoen et al. 1991
+Growth_Day_30,231,mg,25,Cattle manure,75-80%,Viljoen et al. 1991
+Growth_Day_100,1970,mg,25,Cattle manure,75-80%,Viljoen et al. 1991
+Growth_Day_140,2330,mg,25,Cattle manure,75-80%,Viljoen et al. 1991
+Growth_Day_200,2200,mg,25,Cattle manure,75-80%,Viljoen et al. 1991
+Maturation_Day_20-35,First_clitellum_appearance,qualitative,25,Cattle manure,75-80%,Viljoen et al. 1991
+Maturation_Day_130,100%_mature,qualitative,25,Cattle manure,75-80%,Viljoen et al. 1991
+Cocoon_production_Day_65,First_observed,qualitative,25,Cattle manure,75-80%,Viljoen et al. 1991
+Cocoon_production_Day_110-130,0.4,cocoons/worm/day,25,Cattle manure,75-80%,Viljoen et al. 1991
+Cocoon_production_Day_200,0.43,cocoons/worm/day,25,Cattle manure,75-80%,Viljoen et al. 1991
+Adult_weight_range,400-900,mg,20,Artificial soil + OMW CS,40%,Trigui et al. 2022
+Cocoon_production_10%_OMW_CS,3.08,cocoons/worm,20,Artificial soil + 10% OMW CS,40%,Trigui et al. 2022
+Cocoon_production_50%_OMW_CS,0,cocoons/worm,20,Artificial soil + 50% OMW CS,40%,Trigui et al. 2022
+Weight_loss_7_days_50%_OMW_CS,>40,%,20,Artificial soil + 50% OMW CS,40%,Trigui et al. 2022
+Weight_loss_28_days_25%_OMW_CS,>40,%,20,Artificial soil + 25% OMW CS,40%,Trigui et al. 2022
+Weight_loss_28_days_50%_OMW_CS,>40,%,20,Artificial soil + 50% OMW CS,40%,Trigui et al. 2022
+Breeding_temperature,22,C,22,Not specified,Not specified,Amaroli et al. 2018
