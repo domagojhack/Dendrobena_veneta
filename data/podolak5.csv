@@ -1,0 +1,15 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Cocoon_Weight,0,g/cocoon,0_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0,g/cocoon,4_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.030,g/cocoon,8_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.031,g/cocoon,12_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.032,g/cocoon,16_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.033,g/cocoon,20_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.034,g/cocoon,24_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.035,g/cocoon,28_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.032,g/cocoon,32_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.031,g/cocoon,36_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.030,g/cocoon,40_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.031,g/cocoon,44_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.032,g/cocoon,48_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Weight,0.032,g/cocoon,52_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020

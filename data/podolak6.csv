@@ -1,0 +1,5 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Mean_Body_Weight,0.912,g/individual,52_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Mean_Cocoon_Weight,0.032,g/cocoon,Not_applicable,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Mortality_Rate,17,%,52_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Mean_Cocoon_Production_Rate,2,cocoons/individual/week,Not_applicable,18,Horticultural_soil,Not_specified,Podolak_et_al_2020

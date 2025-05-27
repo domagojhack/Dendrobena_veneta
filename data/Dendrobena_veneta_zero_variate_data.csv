@@ -1,0 +1,10 @@
+Parameter,Description,Value,Source_Notes
+"Age at hatching (days)","Time from cocoon laying to hatching","40 days","Viljoen et al. (1991) at 25°C; typical incubation period"
+"Age at puberty (days)","Age at first cocoon production (sexual maturity)","60 days","Viljoen et al. (1991) at 25°C; time to first cocoon production"
+"Maximum age (days)","Maximum lifespan under optimal conditions","2555 days (7 years)","Estimated from general earthworm data (2–7 years); upper bound for optimal conditions"
+"Minimum age (days)","Typical lifespan in natural conditions","730 days (2 years)","Estimated from general earthworm data; lower bound for natural settings"
+"Length at hatching (cm)","Physical length of hatchlings","0.5 cm","Estimated based on general earthworm hatchling size"
+"Length at puberty (cm)","Physical length at sexual maturity (clitellum development)","5 cm","Estimated from study observations and typical compost worm size at maturity"
+"Maximum length (cm)","Maximum physical length of adult worms","7 cm","Furlong et al. (1997); larger adults at 25°C on paper sludge"
+"Maximum reproduction rate (cocoons/worm/day)","Maximum cocoon production rate under optimal conditions","0.8 cocoons/worm/day","Viljoen et al. (1991) at 25°C"
+"Number of hatchlings per cocoon","Average number of hatchlings per cocoon under optimal conditions","1.2","Viljoen et al. (1991) at 25°C"

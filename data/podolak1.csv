@@ -1,0 +1,15 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Population_Size,10.0,individuals/container,0_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,10.0,individuals/container,4_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,10.0,individuals/container,8_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,10.0,individuals/container,12_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,10.0,individuals/container,16_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,10.0,individuals/container,20_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,9.7,individuals/container,24_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,9.7,individuals/container,28_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,9.7,individuals/container,32_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,9.7,individuals/container,36_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,9.3,individuals/container,40_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,8.7,individuals/container,44_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,8.7,individuals/container,48_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Population_Size,8.3,individuals/container,52_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020

@@ -1,0 +1,15 @@
+Data_Type,Value,Units,Time_or_Condition,Temperature_C,Substrate,Moisture,Source
+Cocoon_Production,0,cocoons/individual,0_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,0,cocoons/individual,4_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,7,cocoons/individual,8_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,7,cocoons/individual,12_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,7,cocoons/individual,16_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,10,cocoons/individual,20_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,8,cocoons/individual,24_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,9,cocoons/individual,28_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,7,cocoons/individual,32_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,8,cocoons/individual,36_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,12,cocoons/individual,40_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,10,cocoons/individual,44_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,8,cocoons/individual,48_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020
+Cocoon_Production,8,cocoons/individual,52_weeks,18,Horticultural_soil,Not_specified,Podolak_et_al_2020

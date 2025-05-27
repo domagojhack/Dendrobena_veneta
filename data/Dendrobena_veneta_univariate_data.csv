@@ -1,0 +1,8 @@
+Variable,Description,Value,Source_Notes
+"Age at cocoon production (days)","Time from hatching to first cocoon production as a function of temperature","60 days at 25°C, 80 days at 15°C","Viljoen et al. (1991); earlier cocoon production at higher temperatures"
+"Cocoon production rate (cocoons/worm/day)","Rate of cocoon production by mature worms as a function of temperature","0.8 cocoons/worm/day at 25°C, 0.5 cocoons/worm/day at 15°C","Viljoen et al. (1991); higher rate at 25°C"
+"Cocoon incubation period (days)","Time from cocoon laying to hatching as a function of temperature","40 days at 25°C, 60 days at 15°C","Viljoen et al. (1991); shorter incubation at higher temperatures"
+"Hatching success (%)","Percentage of cocoons that hatch successfully as a function of temperature","70% at 15°C, 60% at 25°C","Viljoen et al. (1991); higher success at lower temperatures"
+"Hatchlings per cocoon","Number of hatchlings per cocoon as a function of temperature","1.5 hatchlings/cocoon at 15°C, 1.2 hatchlings/cocoon at 25°C","Viljoen et al. (1991); more hatchlings at lower temperatures"
+"Development period to maturity (days)","Time from hatching to sexual maturity (clitellum development) as a function of temperature","60–90 days at 25°C, 80–104 days at 10–15°C","Furlong et al. (1997); faster maturation at higher temperatures"
+"Body length growth (cm)","Physical length as a function of time (approximated)","0.5 cm at hatching, 5–7 cm at maturity (60–90 days at 25°C)","Estimated from general earthworm data and study observations"
