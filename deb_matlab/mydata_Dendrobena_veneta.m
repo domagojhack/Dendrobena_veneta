@@ -40,14 +40,14 @@ metaData.date_acc    = [2017 07 22];
 %% set data
 % zero-variate data
 
-data.ab_25 = 42.1; # 50% of all reared worms, Viljoen et al. 1991 21-
+data.ab_25 = 42.1; % 50% of all reared worms, Viljoen et al. 1991 21-
 temp.ab_25 = C2K(25); % 25°C, Viljoen et al. 1991
 units.ab_25 = 'd';
 label.ab_25 = 'age at birth'; 
 bibkey.ab_25 = 'Viljoen1991';
 comment.ab_25 = '15-65, Mean incubation period from Viljoen_et_al_1991_Fig5.csv';
 
-data.ab_20 = 21; # 50% of all reared worms, Viljoen et al. 1991 21-
+data.ab_20 = 21; %# 50% of all reared worms, Viljoen et al. 1991 21-
 temp.ab_20 = C2K(20); % 25°C, Viljoen et al. 1991
 units.ab_20 = 'd';
 label.ab_20 = 'age at birth'; 
@@ -75,7 +75,7 @@ label.Wwp = 'wet weight at puberty';
 bibkey.Wwp = 'Viljoen1991';
 comment.Wwp = 'Estimated from Viljoen_et_al_1991_Fig1.csv: weight at ~65 days';
 
-data.tp = 65; #
+data.tp = 65; %#
 temp.tp = C2K(25); % 25°C, Viljoen et al. 1991
 units.tp = 'd';
 label.tp = 'time since birth at puberty';
@@ -105,7 +105,7 @@ label.Wwi = 'ultimate wet weight';
 bibkey.Wwi = 'Viljoen1991';
 comment.Wwi = 'Maximum body weight from Figure1 (Viljoen et al. 1991), 25C, cattle manure, 75-80% moisture';
 
-data.Ri_25 = 0.28; # 1.1  worms per cocoon, 0.26 cocoons/worm/day
+data.Ri_25 = 0.28; %# 1.1  worms per cocoon, 0.26 cocoons/worm/day
 data.Ri_25 = data.Ri_25 * 1.1; % Corrected multiplication
 temp.Ri_25 = C2K(25); % 25°C, Viljoen et al. 1991
 units.Ri_25 = 'cocoons/worm/d';
@@ -113,7 +113,7 @@ label.Ri_25 = 'maximum reproduction rate';
 bibkey.Ri_25 = 'Viljoen1991';
 comment.Ri_25 = 'Maximum cocoon production rate from data1.csv (Viljoen et al. 1991), 25C, cattle manure, 75-80% moisture';
 
-data.Ri_20 = 0.185; # Kovacevic2023 number of juevniles per ew divided by time of experiment (28days)
+data.Ri_20 = 0.185; %# Kovacevic2023 number of juevniles per ew divided by time of experiment (28days)
 data.Ri_20 = data.Ri_20 * 2; % Corrected multiplication
 temp.Ri_20 = C2K(20); % 25°C, Viljoen et al. 1991
 units.Ri_20 = 'cocoons/worm/d';
