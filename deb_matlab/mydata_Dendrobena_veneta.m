@@ -19,7 +19,7 @@ metaData.ecoCode.reprod  = {'O'};
 
 metaData.T_typical  = C2K(20); % K, body temp
 metaData.data_0     = {'ab'; 'ap'; 'am'; 'Lb'; 'Lp'; 'Li'; 'Wwb'; 'Wwp'; 'Wwi'; 'Ri'}; 
-metaData.data_1     = {'tW_viljoen', 'tW_data1', 'tW_kovacevic', 'tR_viljoen', 'tR_morgan', 'tRrate_data1', 'T_Ri', 'T_ab', 'T_hs'};
+metaData.data_1     = {'tW_Vilj', 'tW_data1', 'tW_kovacevic', 'tR_viljoen', 'tR_morgan', 'tRrate_data1', 'T_Ri', 'T_ab', 'T_hs'};
 metaData.COMPLETE = 2.5; % using criteria of LikaKear2011
 
 metaData.author   = {"Domagoj K. Hackenberger", "Sunčana Geček"};    
@@ -40,34 +40,33 @@ metaData.date_acc    = [2017 07 22];
 %% set data
 % zero-variate data
 
-data.ab = 42.1; # 50% of all reared worms, Viljoen et al. 1991 21-
-temp.ab = C2K(25); % 25°C, Viljoen et al. 1991
-units.ab = 'd';
-label.ab = 'age at birth'; 
-bibkey.ab = 'Viljoen1991';
-comment.ab = '15-65, Mean incubation period from Viljoen_et_al_1991_Fig5.csv';
+data.ab_25 = 42.1; # 50% of all reared worms, Viljoen et al. 1991 21-
+temp.ab_25 = C2K(25); % 25°C, Viljoen et al. 1991
+units.ab_25 = 'd';
+label.ab_25 = 'age at birth'; 
+bibkey.ab_25 = 'Viljoen1991';
+comment.ab_25 = '15-65, Mean incubation period from Viljoen_et_al_1991_Fig5.csv';
 
-data.ab = 21; # 50% of all reared worms, Viljoen et al. 1991 21-
-temp.ab = C2K(20); % 25°C, Viljoen et al. 1991
-units.ab = 'd';
-label.ab = 'age at birth'; 
-bibkey.ab = 'Kovacevic2023';
-comment.ab = '';
+data.ab_20 = 21; # 50% of all reared worms, Viljoen et al. 1991 21-
+temp.ab_20 = C2K(20); % 25°C, Viljoen et al. 1991
+units.ab_20 = 'd';
+label.ab_20 = 'age at birth'; 
+bibkey.ab_20 = 'Kovacevic2023';
+comment.ab_20 = '';
 
+data.Wwb_20 = 0.01;   
+temp.Wwb_20 = C2K(20); % 20°C, Kovacevic2023
+units.Wwb_20 = 'g';
+label.Wwb_20 = 'wet weight at birth';     
+bibkey.Wwb_20 = 'Kovacevic2023';
+comment.Wwb_20 = 'From Kovacevic_et_al_2023_Fig2.csv, control (0 mg/kg TEB)';
 
-data.Wwb = 0.01;   
-temp.Wwb = C2K(20); % 20°C, Kovacevic2023
-units.Wwb = 'g';
-label.Wwb = 'wet weight at birth';     
-bibkey.Wwb = 'Kovacevic2023';
-comment.Wwb = 'From Kovacevic_et_al_2023_Fig2.csv, control (0 mg/kg TEB)';
-
-data.Wwb = 0.024;   
-temp.Wwb = C2K(25); % 25°C, Viljoen et al. 1991
-units.Wwb = 'g';   
-label.Wwb = 'wet weight at birth';     
-bibkey.Wwb = 'Viljoen1991';
-comment.Wwb = 'Mean mass of 55 hatched From Viljoen_et_al_1991_Fig1.csv, control (0 mg/kg TEB)';
+data.Wwb_25 = 0.024;   
+temp.Wwb_25 = C2K(25); % 25°C, Viljoen et al. 1991
+units.Wwb_25 = 'g';   
+label.Wwb_25 = 'wet weight at birth';     
+bibkey.Wwb_25 = 'Viljoen1991';
+comment.Wwb_25 = 'Mean mass of 55 hatched From Viljoen_et_al_1991_Fig1.csv, control (0 mg/kg TEB)';
 
 data.Wwp = 1.09495;   
 temp.Wwp = C2K(25); % 25°C, Viljoen et al. 1991
@@ -89,14 +88,15 @@ label.Li = 'ultimate body length';
 bibkey.Li = 'Hackenberger2019';
 comment.Li = '';
 
+
 %Hackenberger DK, Hackenberger DK, Đerđ T, Hackenberger BK. ErIK-a software-based identification key for earthworm species of Croatia. Zootaxa. 2019 Jun 6;4613(3):zootaxa.4613.3.11. doi: 10.11646/zootaxa.4613.3.11. PMID: 31716407.
 
-% data.am = NaN;
-% temp.am = NaN;
-% units.am = 'd';
-% label.am = 'life span';
-% bibkey.am = '';
-% comment.am = 'Not available in data1.csv';
+data.am = 7*365;
+temp.am = C2K(15);
+units.am = 'd';
+label.am = 'life span';
+bibkey.am = 'guess';
+comment.am = 'average of earthworms';
 
 data.Wwi = 2.31172; % g (2311.72 mg)
 temp.Wwi = C2K(25); % 25°C, Viljoen et al. 1991
@@ -126,7 +126,7 @@ comment.Ri_20 = 'Maximum cocoon production rate from kovacevic2023';
 
 % uni-variate data
 
-data.tW_viljoen = [
+data.tW_Vilj = [
     5   56.44
     10  96.88
     15  141.35
@@ -168,17 +168,17 @@ data.tW_viljoen = [
     195 2295.41
     200 2311.72
 ];
-data.tW_viljoen(:,2) = data.tW_viljoen(:,2) / 1000; % convert to g
-units.tW_viljoen   = {'d', 'g'};  
-label.tW_viljoen = {'time', 'wet weight'};
-temp.tW_viljoen    = C2K(25);  
-units.temp.tW_viljoen = 'K'; 
-label.temp.tW_viljoen = 'temperature';
-bibkey.tW_viljoen = 'Viljoen1991'; 
-comment.tW_viljoen='Digitized from Viljoen_et_al_1991_Fig1.csv';
+data.tW_Vilj(:,2) = data.tW_Vilj(:,2) / 1000; % convert to g
+units.tW_Vilj   = {'d', 'g'};  
+label.tW_Vilj = {'time', 'wet weight'};
+temp.tW_Vilj    = C2K(25);  
+units.temp.tW_Vilj = 'K'; 
+label.temp.tW_Vilj = 'temperature';
+bibkey.tW_Vilj = 'Viljoen1991'; 
+comment.tW_Vilj='Digitized from Viljoen_et_al_1991_Fig1.csv';
 
 
-data.tW_kovacevic = [ ... % time (d), wet weight (g) at 0 mg/kg TEB
+data.tW_Kova = [ ... % time (d), wet weight (g) at 0 mg/kg TEB
     0   1.0
     14  16.33
     28  29.0
@@ -189,13 +189,13 @@ data.tW_kovacevic = [ ... % time (d), wet weight (g) at 0 mg/kg TEB
     126 127.0
     197 196.67
 ];
-units.tW_kovacevic   = {'d', 'g'};  
-label.tW_kovacevic = {'time', 'wet weight'};
-temp.tW_kovacevic    = C2K(20);  
-units.temp.tW_kovacevic = 'K'; 
-label.temp.tW_kovacevic = 'temperature';
-bibkey.tW_kovacevic = 'Kovacevic2023'; 
-comment.tW_kovacevic='Digitized from Kovacevic_et_al_2023_Fig3.csv, control (0 mg/kg TEB)';
+units.tW_Kova   = {'d', 'g'};  
+label.tW_Kova = {'time', 'wet weight'};
+temp.tW_Kova    = C2K(20);  
+units.temp.tW_Kova = 'K'; 
+label.temp.tW_Kova = 'temperature';
+bibkey.tW_Kova = 'Kovacevic2023'; 
+comment.tW_Kova='Digitized from Kovacevic_et_al_2023_Fig3.csv, control (0 mg/kg TEB)';
 
 
 %% set weights for all real data
@@ -213,7 +213,7 @@ txtData.bibkey = bibkey;
 txtData.comment = comment;
 
 %% Group plots
-set1 = {'tW_viljoen'}; subtitle1 = {'Growth: Viljoen et al. 1991'};
+set1 = {'tW_Vilj'}; subtitle1 = {'Growth: Viljoen et al. 1991'};
 % set2 = {'tR_viljoen'}; subtitle2 = {'Cumulative reproduction: Viljoen et al. 1991'};
 % set3 = {'tRrate_data1'}; subtitle3 = {'Reproduction rate: Viljoen et al. 1991'};
 metaData.grp.sets = {set1};
@@ -221,7 +221,7 @@ metaData.grp.subtitle = {subtitle1};
 
 %% Discussion points
 D1 = 'We assume kap_R 0 0.95/2 for consistency with how all hermaphrodites are treated in the collection';
-D2 = 'The mod_1 included more weight against time since birth data.';     
+D2 = '';     
 metaData.discussion = struct('D1', D1, 'D2', D2);
 
 %% Facts
