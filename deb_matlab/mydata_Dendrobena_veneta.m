@@ -179,15 +179,16 @@ comment.tW_Vilj='Digitized from Viljoen_et_al_1991_Fig1.csv';
 
 
 data.tW_Kova = [ ... % time (d), wet weight (g) at 0 mg/kg TEB
-    0   1.0
-    14  16.33
-    28  29.0
-    42  43.0
-    63  64.0
-    84  85.0
-    105 106.0
-    126 127.0
-    197 196.67
+    0   0.01
+    14  0.25
+    28  0.51
+    42  1.2
+    63  1.8
+    84  1.78
+    105 1.89
+    126 2.0
+    197 2.29
+
 ];
 units.tW_Kova   = {'d', 'g'};  
 label.tW_Kova = {'time', 'wet weight'};
