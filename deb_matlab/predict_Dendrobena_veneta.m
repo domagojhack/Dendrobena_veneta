@@ -10,7 +10,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   TC_ab_25  = tempcorr(auxData.temp.ab_25,  par.T_ref, par.T_A);
   TC_ab_20  = tempcorr(auxData.temp.ab_20,  par.T_ref, par.T_A);
   TC_tp  = tempcorr(auxData.temp.tp,  par.T_ref, par.T_A);
-  TC_Ri  = tempcorr(auxData.temp.Ri,  par.T_ref, par.T_A);
+  %TC_Ri_20  = tempcorr(auxData.temp.Ri_20,  par.T_ref, par.T_A);
   TC_am = tempcorr(auxData.temp.am,  par.T_ref, par.T_A);
   TC_20 = tempcorr(auxData.temp.Wwb_20,  par.T_ref, par.T_A);
   TC_25 = tempcorr(auxData.temp.Wwb_25,  par.T_ref, par.T_A);
@@ -44,7 +44,8 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
  
   % reproduction
   pars_R = [kap; kap_R; g; k_J; k_M; L_T; v; U_Hb; U_Hp]; % compose parameter vector at T
-  RT_i = TC_Ri * reprod_rate(L_i, f, pars_R);             % #/d, ultimate reproduction rate at T
+  RT_i_20 = TC_20 * reprod_rate(L_i, f_Kova, pars_R);             % #/d, ultimate reproduction rate at T
+  RT_i_25 = TC_25 * reprod_rate(L_i, f_Vilj, pars_R);             % #/d, ultimate reproduction rate at T
 
   % life span
   pars_tm = [g; l_T; h_a/ k_M^2; s_G];  % compose parameter vector at T_ref
@@ -63,7 +64,8 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   prdData.Wwb_20 = Ww_b_20;
   prdData.Wwp = Ww_p;
   prdData.Wwi = Ww_i;
-  prdData.Ri  = RT_i;
+  prdData.Ri_20  = RT_i_20;
+  prdData.Ri_25  = RT_i_25;
   % --- Univariate predictions ---
   % uni-variate data : time-wet weight of 46 individual worms from 2
   % separate experiments
