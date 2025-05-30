@@ -17,7 +17,7 @@
 \usepackage{noto}
 
 % Title and author
-\title{Dynamic Energy Budget (DEB) Theory Applied to \textit{Dendrobena veneta}}
+\title{Updated Dynamic Energy Budget (DEB) Theory Applied to \textit{Dendrobena veneta}}
 \author{}
 \date{May 2025}
 
@@ -26,20 +26,20 @@
 \maketitle
 
 \begin{abstract}
-This document explains the application of Dynamic Energy Budget (DEB) theory to model the life history of the earthworm \textit{Dendrobena veneta} (European nightcrawler) using a MATLAB-based prediction function (\texttt{predict\_Dendrobena\_veneta.m}). DEB theory provides a framework for understanding how organisms allocate energy from food to growth, maintenance, and reproduction. We describe the core principles of DEB, detail how they are implemented in the prediction function, and illustrate their application to zero-variate and uni-variate data for \textit{D. veneta}. This explanation is aimed at readers new to DEB theory, with references to the provided MATLAB code.
+This document provides an updated explanation of the application of Dynamic Energy Budget (DEB) theory to model the life history of the earthworm \textit{Dendrobena veneta} (European nightcrawler) using a MATLAB-based prediction function (\texttt{predict\_Dendrobena\_veneta.m}). DEB theory models energy allocation from food to growth, maintenance, and reproduction. We describe DEB principles, detail their implementation in the updated prediction function, and explain how they predict zero-variate and uni-variate data for \textit{D. veneta}. Changes in the codebase, including parameter initialization and data weights, are incorporated. This explanation targets readers new to DEB theory, referencing the provided MATLAB code.
 \end{abstract}
 
 \section{Introduction}
-Dynamic Energy Budget (DEB) theory, developed by Bas Kooijman \citep{Kooijman2010}, is a mechanistic framework for modeling the energy and mass flows in organisms throughout their life cycle. It is widely used in ecology and ecotoxicology to predict traits such as growth, reproduction, and lifespan. The MATLAB function \texttt{predict\_Dendrobena\_veneta.m}, part of the DEBtool toolbox, applies DEB theory to predict life history traits of the earthworm \textit{Dendrobena veneta} based on experimental data from studies like \citet{Viljoen1991, Viljoen1992, Kovacevic2023, Podolak2020}.
+Dynamic Energy Budget (DEB) theory, developed by Bas Kooijman \citep{Kooijman2010}, is a mechanistic framework for modeling energy and mass flows in organisms throughout their life cycle. It is widely used in ecology and ecotoxicology to predict traits such as growth, reproduction, and lifespan. The MATLAB function \texttt{predict\_Dendrobena\_veneta.m}, part of the DEBtool toolbox, applies DEB theory to predict life history traits of the earthworm \textit{Dendrobena veneta} based on experimental data from \citet{Viljoen1991, Viljoen1992, Kovacevic2023, Podolak2020}. The updated codebase includes changes in parameter initialization (\texttt{run\_Dendrobena\_veneta.m}) and data weights (\texttt{mydata\_Dendrobena\_veneta.m}).
 
-This document explains the DEB theory concepts underlying the prediction function, focusing on how energy allocation, growth, and temperature effects are modeled. We break down the code’s structure and map it to DEB principles, making it accessible for those unfamiliar with the theory.
+This document explains the DEB theory concepts underlying the prediction function, focusing on energy allocation, growth, and temperature effects. We break down the updated code and map it to DEB principles, making it accessible for those unfamiliar with the theory.
 
 \section{Overview of DEB Theory}
-DEB theory assumes that organisms assimilate energy from food into a \textit{reserve} compartment, which is then allocated to various processes. The key state variables are:
+DEB theory assumes that organisms assimilate energy from food into a \textit{reserve} compartment, which is allocated to metabolic processes. The key state variables are:
 \begin{itemize}
-    \item \textbf{Reserve ($E$)}: Energy stored from food, used for all metabolic processes.
+    \item \textbf{Reserve ($E$)}: Energy stored from food, used for all processes.
     \item \textbf{Structure ($V$)}: Physical biomass (volume, cm$^3$), representing core tissues.
-    \item \textbf{Maturity ($E_H$)}: Cumulative energy invested in development (e.g., reaching birth or puberty).
+    \item \textbf{Maturity ($E_H$)}: Cumulative energy invested in development (e.g., birth, puberty).
     \item \textbf{Reproduction buffer ($E_R$)}: Energy allocated to reproduction in adults.
 \end{itemize}
 
@@ -54,7 +54,7 @@ Energy allocation follows these rules:
 Growth is modeled using structural length ($L = V^{1/3}$, cm), related to physical length ($L_w = L / \delta_M$, where $\delta_M$ is a shape coefficient). Metabolic rates are temperature-dependent, adjusted using an Arrhenius relationship. The standard DEB model (\texttt{std}), used in the code, assumes isomorphic growth (constant body shape).
 
 \section{DEB Implementation in \texttt{predict\_Dendrobena\_veneta.m}}
-The \texttt{predict\_Dendrobena\_veneta.m} function predicts life history traits for \textit{D. veneta} using DEB parameters, data, and auxiliary data (e.g., temperatures). Below, we explain the main sections of the code and their DEB underpinnings.
+The \texttt{predict\_Dendrobena\_veneta.m} function predicts life history traits for \textit{D. veneta} using DEB parameters, data, and auxiliary data (e.g., temperatures). Below, we explain the main sections of the code and their DEB underpinnings, incorporating updates from the codebase.
 
 \subsection{Unpacking Parameters and Data}
 \begin{verbatim}
@@ -63,7 +63,7 @@ vars_pull(cPar); vars_pull(data); vars_pull(auxData);
 \end{verbatim}
 The function unpacks core parameters (e.g., zoom factor $z$, energy conductance $v$, allocation fraction $\kappa$), derived parameters (e.g., maximum structural length $L_m$), and data (e.g., age at birth, growth curves). The \texttt{parscomp\_st} function computes variables like $L_m = z \cdot v / \kappa \cdot [p_M]$, where $[p_M]$ is specific maintenance cost.
 
-\textbf{DEB Context}: Parameters define the energy budget. For example, $z = 0.3431$, $v = 0.01477$ cm/d, $\kappa = 0.5756$, and $[p_M] = 4740.8319$ J/d.cm$^3$ (from \texttt{pars\_init\_Dendrobena\_veneta.m}) determine assimilation, mobilization, and maintenance rates.
+\textbf{DEB Context}: Parameters define the energy budget. For example, $z = 0.3431$, $v = 0.01477$ cm/d, $\kappa = 0.5756$, and $[p_M] = 4740.8319$ J/d.cm$^3$ (from \texttt{pars\_init\_Dendrobena\_veneta.m}) determine assimilation, mobilization, and maintenance rates. The updated \texttt{run\_Dendrobena\_veneta.m} sets \texttt{pars\_init\_method = 1}, indicating parameters are initialized from \texttt{pars\_init\_Dendrobena\_veneta.m} without modification.
 
 \subsection{Temperature Correction}
 \begin{verbatim}
@@ -75,9 +75,9 @@ Metabolic rates are adjusted for temperature using the Arrhenius equation:
 \begin{equation}
 \text{TC} = \exp\left(\frac{T_A}{T_{\text{ref}}} - \frac{T_A}{T}\right),
 \end{equation}
-where $T_A = 8000$ K (Arrhenius temperature), $T_{\text{ref}} = 293.15$ K (20°C), and $T$ is the experimental temperature (e.g., 25°C for \texttt{ab\_25}).
+where $T_A = 8000$ K (Arrhenius temperature, now free for optimization), $T_{\text{ref}} = 293.15$ K (20°C), and $T$ is the experimental temperature (e.g., 25°C for \texttt{ab\_25}).
 
-\textbf{DEB Context}: Temperature affects all rates (e.g., maintenance, growth, reproduction). The \texttt{tempcorr} function ensures predictions match data at 15°C, 18°C, 20°C, and 25°C.
+\textbf{DEB Context}: Temperature affects all rates (e.g., maintenance, growth, reproduction). The \texttt{tempcorr} function ensures predictions match data at 15°C, 18°C, 20°C, and 25°C. The updated code keeps the same temperature corrections, with some commented-out (e.g., \texttt{TC\_ab\_18}), indicating they are not currently used.
 
 \subsection{Zero-Variate Predictions}
 Zero-variate data are single-point traits (e.g., age at birth, weight at puberty). The code predicts these using DEB equations.
@@ -131,7 +131,7 @@ RT_i_20 = TC_20 * reprod_rate(L_i, f_Kova, pars_R);  % #/d, at 20C
 \end{verbatim}
 The \texttt{reprod\_rate} function computes cocoon production rate, using $\kappa$, reproduction efficiency $\kappa_R = 0.475$, and food level ($f_{\text{Kova}}$, etc.). Temperature correction (\texttt{TC\_20}) adjusts the rate.
 
-\textbf{DEB Context}: Reproduction uses energy from the $1-\kappa$ branch, converted to cocoons with efficiency $\kappa_R$. Matches data (e.g., \texttt{Ri\_25 = 0.308 cocoons/worm/d}).
+\textbf{DEB Context}: Reproduction uses energy from the $1-\kappa$ branch, converted to cocoons with efficiency $\kappa_R$. Matches data (e.g., \texttt{Ri\_25 = 0.308 cocoons/worm/d}). Note that \texttt{Ri\_15 = 20.4 cocoons/worm/d} in \texttt{mydata\_Dendrobena\_veneta.m} may need verification due to its high value.
 
 \subsubsection{Life Span}
 \begin{verbatim}
@@ -141,7 +141,7 @@ aT_m = t_m / k_M / TC_am;
 \end{verbatim}
 Life span is modeled using aging parameters: Weibull acceleration ($h_a = 1.629 \times 10^{-8}$ 1/d$^2$) and Gompertz stress ($s_G = 0.0001$). Scaled life span ($t_m$) is converted to real time.
 
-\textbf{DEB Context}: Matches data (e.g., \texttt{am = 6*365 d}).
+\textbf{DEB Context}: Matches data (e.g., \texttt{am = 6*365 d}, a rough estimate).
 
 \subsection{Uni-Variate Predictions (Growth Curves)}
 \begin{verbatim}
@@ -156,7 +156,7 @@ L(t) = L_i - (L_i - L_b) \exp(-r_B \cdot t),
 \end{equation}
 where $r_B = \text{TC} / (3 / k_M + 3 f L_m / v)$ is the growth rate, adjusted for temperature. Wet weight is $L(t)^3 (1 + f \cdot \omega)$. This is applied to datasets (\texttt{tW\_Kova}, \texttt{tW\_Vilj}, etc.) at different temperatures and food levels.
 
-\textbf{DEB Context}: Growth reflects the balance between reserve mobilization and maintenance. The code handles initial conditions (e.g., \texttt{w0\_podo = 0.93 g} for \texttt{tW\_podolak}).
+\textbf{DEB Context}: Growth reflects the balance between reserve mobilization and maintenance. The code handles initial conditions (e.g., \texttt{w0\_podo = 0.93 g} for \texttt{tW\_podolak}). The updated \texttt{mydata\_Dendrobena\_veneta.m} assigns higher weights to growth curves (e.g., $10\times$ for \texttt{tW\_Vilj}, $15\times$ for \texttt{tW\_Vilj\_2}, $5\times$ for \texttt{tW\_Kova}), emphasizing their importance in parameter estimation.
 
 \subsection{Additional Predictions}
 The code includes extra zero-variate (e.g., \texttt{ab\_15}, \texttt{tp3}) and uni-variate (e.g., \texttt{tW\_Vilj\_2}) predictions, following the same DEB logic but tailored to specific datasets.
@@ -164,20 +164,28 @@ The code includes extra zero-variate (e.g., \texttt{ab\_15}, \texttt{tp3}) and u
 \section{Key DEB Parameters}
 From \texttt{pars\_init\_Dendrobena\_veneta.m}:
 \begin{itemize}
-    \item $z = 0.3431$: Scales assimilation rate.
-    \item $v = 0.01477$ cm/d: Reserve mobilization rate.
-    \item $\kappa = 0.5756$: Fraction to soma.
-    \item $[p_M] = 4740.8319$ J/d.cm$^3$: Maintenance cost.
-    \item $[E_G] = 4181.7688$ J/cm$^3$: Cost of structure.
-    \item $E_{Hb} = 5.229$ J, $E_{Hp} = 1055$ J: Maturity thresholds.
-    \item $\kappa_R = 0.475$: Reproduction efficiency.
-    \item $\delta_M = 0.050632$: Shape coefficient.
-    \item $T_A = 8000$ K: Temperature sensitivity.
+    \item $z = 0.3431$: Scales assimilation rate (free for optimization).
+    \item $v = 0.01477$ cm/d: Reserve mobilization rate (free).
+    \item $\kappa = 0.5756$: Fraction to soma (free).
+    \item $[p_M] = 4740.8319$ J/d.cm$^3$: Maintenance cost (free).
+    \item $[E_G] = 4181.7688$ J/cm$^3$: Cost of structure (free).
+    \item $E_{Hb} = 5.229$ J, $E_{Hp} = 1055$ J: Maturity thresholds (free).
+    \item $\kappa_R = 0.475$: Reproduction efficiency (fixed).
+    \item $\delta_M = 0.050632$: Shape coefficient (free).
+    \item $T_A = 8000$ K: Temperature sensitivity (free).
 \end{itemize}
-These parameters define \textit{D. veneta}’s energy budget and drive predictions.
+These parameters define \textit{D. veneta}’s energy budget. The updated \texttt{run\_Dendrobena\_veneta.m} uses the Nelder-Mead method (\texttt{method = 'nm'}) with 500 steps and 5000 function evaluations, and outputs detailed results (\texttt{results\_output = 3}).
+
+\section{Updated Code Features}
+The updated codebase includes:
+\begin{itemize}
+    \item \textbf{Parameter Initialization}: \texttt{pars\_init\_method = 1} in \texttt{run\_Dendrobena\_veneta.m} uses parameters directly from \texttt{pars\_init\_Dendrobena\_veneta.m}.
+    \item \textbf{Data Weights}: \texttt{mydata\_Dendrobena\_veneta.m} increases weights for growth curves (e.g., $10\times$ for \texttt{tW\_Vilj}, $15\times$ for \texttt{tW\_Vilj\_2} and \texttt{tW\_Vilj\_3}, $5\times$ for \texttt{tW\_podolak} and \texttt{tW\_Kova}) and pseudo-data ($10\times$ for \texttt{p\_M}), prioritizing these in parameter estimation.
+    \item \textbf{Duplicate \texttt{f\_Kova}}: \texttt{pars\_init\_Dendrobena\_veneta.m} defines \texttt{f\_Kova} twice, which should be corrected to avoid ambiguity.
+\end{itemize}
 
 \section{Conclusion}
-The \texttt{predict\_Dendrobena\_veneta.m} function applies DEB theory to model \textit{D. veneta}’s life history, predicting traits like age at birth, weight, and reproduction rate across temperatures (15–25°C) and food levels. It uses the standard DEB model, von Bertalanffy growth, and temperature corrections to match experimental data. This implementation demonstrates DEB’s power to integrate diverse datasets into a unified energetic framework.
+The updated \texttt{predict\_Dendrobena\_veneta.m} function applies DEB theory to model \textit{D. veneta}’s life history, predicting traits like age at birth, weight, and reproduction rate across temperatures (15–25°C) and food levels. It uses the standard DEB model, von Bertalanffy growth, and temperature corrections, with enhanced data weights to improve fit. This implementation demonstrates DEB’s ability to integrate diverse datasets into a unified energetic framework.
 
 For further learning, consult \citet{Kooijman2010} or the Add-my-Pet portal (\url{https://www.bio.vu.nl/thb/deb/deblab/add_my_pet/}).
 

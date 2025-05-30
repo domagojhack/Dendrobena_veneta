@@ -378,18 +378,16 @@ label.temp.tW_Kova = 'temperature';
 bibkey.tW_Kova = 'Kovacevic2023'; 
 comment.tW_Kova='Digitized from Kovacevic_et_al_2023_Fig3, control (0 mg/kg TEB)';
 
-
 %% set weights for all real data
 weights = setweights(data, []);
 
-% weights.ab_25 = 5*weights.ab_25; % 50% of all reared worms, Viljoen et al. 1991 21-
-weights.tW_Vilj = 10 * weights.tW_Vilj; % 10% of all reared worms, Viljoen et al. 1991 21-
-weights.tW_Vilj_2 = 10 * weights.tW_Vilj_2; % 10% of all reared worms, Viljoen et al. 1992 21-
-weights.tW_Vilj_3 = 10 * weights.tW_Vilj_3; % 10% of all reared worms, Viljoen et al. 1992 21-
-weights.tW_podolak = 15 * weights.tW_podolak; % 10% of all reared worms, Podolak et al. 2020
+weights.tW_Vilj = 10 * weights.tW_Vilj;
+weights.tW_Vilj_2 = 15 * weights.tW_Vilj_2;
+weights.tW_Vilj_3 = 15 * weights.tW_Vilj_3;
+weights.tW_podolak = 5 * weights.tW_podolak;
+weights.tW_Kova = 5 * weights.tW_Kova; 
 
-
-%% set pseudodata and respective weights
+% set pseudodata and respective weights
 [data, units, label, weights] = addpseudodata(data, units, label, weights);
 weights.psd.p_M = 10 * weights.psd.p_M;
 

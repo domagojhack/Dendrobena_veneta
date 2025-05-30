@@ -23,7 +23,7 @@ par.h_a = 1.629e-08;  free.h_a   = 1;   units.h_a = '1/d^2';      label.h_a = 'W
 par.s_G = 0.0001;     free.s_G   = 0;   units.s_G = '-';          label.s_G = 'Gompertz stress coefficient'; 
 
 %% other parameters 
-par.T_A = 8000;         free.T_A   = 0;     units.T_A = 'K';      label.T_A = 'Arrhenius temperature'; 
+par.T_A = 8000;         free.T_A   = 1;     units.T_A = 'K';      label.T_A = 'Arrhenius temperature'; 
 par.del_M = 0.050632;   free.del_M = 1;     units.del_M = '-';    label.del_M = 'shape coefficient'; 
 par.f = 1;              free.f     = 0;     units.f = '-';        label.f = 'scaled functional response for 0-var data'; 
 par.f_Kova = 1;         free.f_Kova  = 1;   units.f_Kova = '-';   label.f_Kova = 'f for Kovacevic et al. 2023'; 

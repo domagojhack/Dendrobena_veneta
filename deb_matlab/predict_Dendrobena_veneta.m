@@ -134,7 +134,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   f = f_podolak; TC = tempcorr(auxData.temp.tW_podolak, par.T_ref, par.T_A);
   ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
   L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
-  w0_podo = 0.93;
+  w0_podo = 0.93; % initial wet weight from Podolak et al. 2020
   L_t0 = (w0_podo/(1+f*ome)).^(1/3);
   L = L_i - (L_i - L_t0) * exp( - rT_B * tW_podolak(:,1));
   EWw_podolak = L.^3 * (1 + f * ome);
