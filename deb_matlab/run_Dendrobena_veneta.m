@@ -1,4 +1,9 @@
 close all; 
+
+addpath(genpath("/home/domagoj/GitHub/DEBtool_m"))
+addpath(genpath("/home/domagoj/GitHub/AmPtool"))
+addpath(genpath("/home/domagoj/data/AmPdata"))
+
 global pets 
 
 pets = {'Dendrobena_veneta'}; 

@@ -36,7 +36,6 @@ metaData.curator     = {'Nina Marn'};
 metaData.email_cur   = {''}; 
 metaData.date_acc    = [2017 07 22]; 
 
-
 %% set data
 % zero-variate data
 
@@ -45,7 +44,25 @@ temp.ab_25 = C2K(25); % 25°C, Viljoen et al. 1991
 units.ab_25 = 'd';
 label.ab_25 = 'age at birth'; 
 bibkey.ab_25 = 'Viljoen1991';
-comment.ab_25 = '15-65, Mean incubation period from Viljoen_et_al_1991_Fig5.csv';
+comment.ab_25 = '15-65, Mean incubation period from Viljoen1991';
+
+
+data.ab_25_2 = 42; # 50% of all reared worms, Viljoen et al. 1991 21-
+temp.ab_25_2 = C2K(25); % 25°C, Viljoen et al. 1991
+units.ab_25_2 = 'd';
+label.ab_25_2 = 'age at birth'; 
+bibkey.ab_25_2 = 'Viljoen1992';
+comment.ab_25_2 = 'Mean incubation period from Viljoen1992';
+
+
+data.ab_15 = 71; # 50% of all reared worms, Viljoen et al. 1991 21-
+temp.ab_15 = C2K(15); % 25°C, Viljoen et al. 1991
+units.ab_15 = 'd';
+label.ab_15 = 'age at birth'; 
+bibkey.ab_15 = 'Viljoen1992';
+comment.ab_15 = '15-65, Mean incubation period from Viljoen1992';
+
+
 
 data.ab_20 = 21; # 50% of all reared worms, Viljoen et al. 1991 21-
 temp.ab_20 = C2K(20); % 25°C, Viljoen et al. 1991
@@ -59,21 +76,21 @@ temp.Wwb_20 = C2K(20); % 20°C, Kovacevic2023
 units.Wwb_20 = 'g';
 label.Wwb_20 = 'wet weight at birth';     
 bibkey.Wwb_20 = 'Kovacevic2023';
-comment.Wwb_20 = 'From Kovacevic_et_al_2023_Fig2.csv, control (0 mg/kg TEB)';
+comment.Wwb_20 = 'From Kovacevic_et_al_2023_Fig2, control (0 mg/kg TEB)';
 
 data.Wwb_25 = 0.024;   
 temp.Wwb_25 = C2K(25); % 25°C, Viljoen et al. 1991
 units.Wwb_25 = 'g';   
 label.Wwb_25 = 'wet weight at birth';     
 bibkey.Wwb_25 = 'Viljoen1991';
-comment.Wwb_25 = 'Mean mass of 55 hatched From Viljoen_et_al_1991_Fig1.csv, control (0 mg/kg TEB)';
+comment.Wwb_25 = 'Mean mass of 55 hatched From Viljoen_et_al_1991_Fig1, control (0 mg/kg TEB)';
 
 data.Wwp = 1.09495;   
 temp.Wwp = C2K(25); % 25°C, Viljoen et al. 1991
 units.Wwp = 'g';   
 label.Wwp = 'wet weight at puberty';     
 bibkey.Wwp = 'Viljoen1991';
-comment.Wwp = 'Estimated from Viljoen_et_al_1991_Fig1.csv: weight at ~65 days';
+comment.Wwp = 'Estimated from Viljoen_et_al_1991_Fig1: weight at ~65 days';
 
 data.tp = 65; #
 temp.tp = C2K(25); % 25°C, Viljoen et al. 1991
@@ -81,6 +98,27 @@ units.tp = 'd';
 label.tp = 'time since birth at puberty';
 bibkey.tp = 'Viljoen1991';
 comment.tp = 'range 30-120 time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture';
+
+data.tp = 60; #
+temp.tp = C2K(25); % 25°C, Viljoen et al. 1991
+units.tp = 'd';
+label.tp = 'time since birth at puberty';
+bibkey.tp = 'Viljoen1992';
+comment.tp = 'time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture';
+
+data.tp2 = 65; #
+temp.tp2 = C2K(25); % 25°C, Viljoen et al. 1991
+units.tp2 = 'd';
+label.tp2 = 'time since birth at puberty';
+bibkey.tp2 = 'Viljoen1991';
+comment.tp2 = 'range 30-120 time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture';
+
+data.tp3 = 77; #
+temp.tp3 = C2K(15); % 25°C, Viljoen et al. 1991
+units.tp3 = 'd';
+label.tp3 = 'time since birth at puberty';
+bibkey.tp3 = 'Viljoen1992';
+comment.tp3 = ' time since birth at puberty (first clitellum), 15, cattle manure, 75-80% moisture';
 
 data.Li = 11; % cm, hackenberger2019
 units.Li = 'cm';
@@ -91,7 +129,7 @@ comment.Li = '';
 
 %Hackenberger DK, Hackenberger DK, Đerđ T, Hackenberger BK. ErIK-a software-based identification key for earthworm species of Croatia. Zootaxa. 2019 Jun 6;4613(3):zootaxa.4613.3.11. doi: 10.11646/zootaxa.4613.3.11. PMID: 31716407.
 
-data.am = 7*365;
+data.am = 6*365; % days, 7 years - TODO: check / no exact data however composting worms can live from 4-8 years
 temp.am = C2K(15);
 units.am = 'd';
 label.am = 'life span';
@@ -111,7 +149,25 @@ temp.Ri_25 = C2K(25); % 25°C, Viljoen et al. 1991
 units.Ri_25 = 'cocoons/worm/d';
 label.Ri_25 = 'maximum reproduction rate';
 bibkey.Ri_25 = 'Viljoen1991';
-comment.Ri_25 = 'Maximum cocoon production rate from data1.csv (Viljoen et al. 1991), 25C, cattle manure, 75-80% moisture';
+comment.Ri_25 = 'Maximum cocoon production rate from  (Viljoen et al. 1991), 25C, cattle manure, 75-80% moisture, it is also same in Viljoen1992';
+
+data.Ri_15 = 17;
+% data.Ri_15 = 0.28; # 1.1  worms per cocoon, 0.26 cocoons/worm/day
+data.Ri_15 = data.Ri_15 * 1.2; % Corrected multiplication for ammount of hatchlings per cocoon
+temp.Ri_15 = C2K(15); % 25°C, Viljoen et al. 1991
+units.Ri_15 = 'cocoons/worm/d'; 
+label.Ri_15 = 'maximum reproduction rate';
+bibkey.Ri_15 = 'Viljoen1992';
+comment.Ri_15 = 'Maximum cocoon production rate from (Viljoen et al. 1992), 15C, cattle manure, 75-80% moisture';
+
+
+data.Ri_18 = 0.28; # 1.1  worms per cocoon, 0.26 cocoons/worm/day
+data.Ri_18 = data.Ri_25 * 1.1; % Corrected multiplication
+temp.Ri_18 = C2K(25); % 25°C, Viljoen et al. 1991
+units.Ri_18 = 'cocoons/worm/d';
+label.Ri_18 = 'maximum reproduction rate';
+bibkey.Ri_18 = 'Podolak2020';
+comment.Ri_18 = 'Maximum cocoon production rate from (Poodolak et al. 2020), 18C';
 
 data.Ri_20 = 0.185; # Kovacevic2023 number of juevniles per ew divided by time of experiment (28days)
 data.Ri_20 = data.Ri_20 * 2; % Corrected multiplication
@@ -120,7 +176,6 @@ units.Ri_20 = 'cocoons/worm/d';
 label.Ri_20 = 'maximum reproduction rate';
 bibkey.Ri_20 = 'Kovacevic2023';
 comment.Ri_20 = 'Maximum cocoon production rate from kovacevic2023';
-
 
 % Add other zero-variate data here as needed, with corresponding units, label, bibkey, comment, temp if available
 
@@ -175,7 +230,137 @@ temp.tW_Vilj    = C2K(25);
 units.temp.tW_Vilj = 'K'; 
 label.temp.tW_Vilj = 'temperature';
 bibkey.tW_Vilj = 'Viljoen1991'; 
-comment.tW_Vilj='Digitized from Viljoen_et_al_1991_Fig1.csv';
+comment.tW_Vilj='Digitized from Viljoen1991 Fig1';
+
+
+data.tW_Vilj_2 = [
+    5   31.47;
+    10  83.53;
+    15  135.6;
+    20  216.71;
+    25  274.58;
+    30  344.04;
+    35  436.77;
+    40  564.27;
+    45  726.62;
+    50  813.52;
+    55  888.8;
+    60  1016.32;
+    65  1050.98;
+    70  1178.49;
+    75  1253.77;
+    80  1369.7;
+    85  1357.91;
+    90  1473.84;
+    95  1601.36;
+    100 1653.43;
+    105 1693.87;
+    110 1757.58;
+    115 1844.47;
+    120 1942.97;
+    125 2006.64;
+    130 2064.53;
+    135 2012.16;
+    140 2006.19;
+    145 2040.84;
+    150 1976.85;
+    155 1976.66;
+    160 2034.55;
+    165 2109.83;
+    170 2196.74;
+    175 2260.42;
+    180 2242.84;
+    185 2225.26;
+    190 2265.74;
+    195 2306.21;
+    200 2218.99
+];
+data.tW_Vilj_2(:,2) = data.tW_Vilj_2(:,2) / 1000; % convert to g
+units.tW_Vilj_2   = {'d', 'g'};  
+label.tW_Vilj_2 = {'time', 'wet weight'};
+temp.tW_Vilj_2    = C2K(25);  
+units.temp.tW_Vilj_2 = 'K'; 
+label.temp.tW_Vilj_2 = 'temperature';
+bibkey.tW_Vilj_2 = 'Viljoen1992'; 
+comment.tW_Vilj_2='Digitized from Viljoen1992 Fig1';
+
+
+data.tW_Vilj_3 = [
+    5   37.24;
+    10  71.92;
+    15  89.17;
+    20  147.05;
+    25  181.71;
+    30  239.58;
+    35  326.46;
+    40  384.36;
+    45  453.84;
+    50  523.33;
+    55  633.44;
+    60  668.1;
+    65  813.06;
+    70  882.53;
+    75  969.41;
+    80  1009.87;
+    85  1027.15;
+    90  1114.02;
+    95  1154.48;
+    100 1148.53;
+    105 1223.83;
+    110 1229.46;
+    115 1264.14;
+    120 1263.97;
+    125 1263.8;
+    130 1252.07;
+    135 1309.93;
+    140 1373.61;
+    145 1414.09;
+    150 1413.91;
+    155 1390.56;
+    160 1465.86;
+    165 1448.28;
+    170 1488.74;
+    175 1488.57;
+    180 1563.89;
+    185 1563.73;
+    190 1604.19;
+    195 1621.46;
+    200 1685.15
+];
+data.tW_Vilj_3(:,2) = data.tW_Vilj_3(:,2) / 1000; % convert to g
+units.tW_Vilj_3   = {'d', 'g'};  
+label.tW_Vilj_3 = {'time', 'wet weight'};
+temp.tW_Vilj_3    = C2K(15);  
+units.temp.tW_Vilj_3 = 'K'; 
+label.temp.tW_Vilj_3 = 'temperature';
+bibkey.tW_Vilj_3 = 'Viljoen1992'; 
+comment.tW_Vilj_3='Digitized from Viljoen1992 Fig1';
+
+data.tW_podolak = [ ... % time (d), wet weight (g) at 0 g/kg TEB
+    0   0.93;
+    28  1.42;
+    56  1.72;
+    84  2.14;
+    112 2.48;
+    140 2.67;
+    168 2.86;
+    196 2.97;
+    224 2.97;
+    252 2.98;
+    280 2.72;
+    308 2.65;
+    336 2.61;
+    364 2.28
+];
+units.tW_podolak   = {'d', 'g'};
+label.tW_podolak = {'time', 'wet weight'};
+temp.tW_podolak    = C2K(18);
+units.temp.tW_podolak = 'K';
+label.temp.tW_podolak = 'temperature';
+bibkey.tW_podolak = 'Podolak2020';
+comment.tW_podolak='Digitized from Podolak2020 Fig1, control (0 g/kg TEB)';
+
+
 
 
 data.tW_Kova = [ ... % time (d), wet weight (g) at 0 mg/kg TEB
@@ -196,7 +381,7 @@ temp.tW_Kova    = C2K(20);
 units.temp.tW_Kova = 'K'; 
 label.temp.tW_Kova = 'temperature';
 bibkey.tW_Kova = 'Kovacevic2023'; 
-comment.tW_Kova='Digitized from Kovacevic_et_al_2023_Fig3.csv, control (0 mg/kg TEB)';
+comment.tW_Kova='Digitized from Kovacevic_et_al_2023_Fig3, control (0 mg/kg TEB)';
 
 
 %% set weights for all real data
@@ -278,4 +463,22 @@ bibkey = 'Hackenberger2019'; type = 'Article'; bib = [ ...
 metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
 
 
+bibkey = 'Viljoen1992'; type = 'Article'; bib = [ ...
+'author = {S. A. Viljoen and A. J. Reinecke}, ' ...
+'year = {1992}, ' ...
+'title = {The effect of temperature on the life cycle of the European compost worm Dendrobaena veneta (Oligochaeta)}, ' ...
+'journal = {South African Journal of Zoology}, ' ...
+'volume = {27}, ' ...
+'pages = {1-5}'];
+metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
 
+bibkey = 'Podolak2020'; type = 'Article'; bib = [ ...
+'author = {Podolak, K. and others}, ' ...
+'year = {2020}, ' ...
+'title = {The effect of tebuconazole on the earthworm Dendrobaena veneta: a full life cycle approach}, ' ...
+'journal = {Environmental Science and Pollution Research}, ' ...
+'volume = {27}, ' ...
+'pages = {1-12}'];
+metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
+
+2
