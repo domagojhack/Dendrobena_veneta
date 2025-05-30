@@ -47,7 +47,7 @@ bibkey.ab_25 = 'Viljoen1991';
 comment.ab_25 = '15-65, Mean incubation period from Viljoen1991';
 
 
-data.ab_25_2 = 42; # 50% of all reared worms, Viljoen et al. 1991 21-
+data.ab_25_2 = 42; % 50% of all reared worms, Viljoen et al. 1991 21-
 temp.ab_25_2 = C2K(25); % 25°C, Viljoen et al. 1991
 units.ab_25_2 = 'd';
 label.ab_25_2 = 'age at birth'; 
@@ -55,16 +55,14 @@ bibkey.ab_25_2 = 'Viljoen1992';
 comment.ab_25_2 = 'Mean incubation period from Viljoen1992';
 
 
-data.ab_15 = 71; # 50% of all reared worms, Viljoen et al. 1991 21-
+data.ab_15 = 71; % 50% of all reared worms, Viljoen et al. 1991 21-
 temp.ab_15 = C2K(15); % 25°C, Viljoen et al. 1991
 units.ab_15 = 'd';
 label.ab_15 = 'age at birth'; 
 bibkey.ab_15 = 'Viljoen1992';
 comment.ab_15 = '15-65, Mean incubation period from Viljoen1992';
 
-
-
-data.ab_20 = 21; %# 50% of all reared worms, Viljoen et al. 1991 21-
+data.ab_20 = 21; % 50% of all reared worms, Viljoen et al. 1991 21-
 temp.ab_20 = C2K(20); % 25°C, Viljoen et al. 1991
 units.ab_20 = 'd';
 label.ab_20 = 'age at birth'; 
@@ -92,28 +90,28 @@ label.Wwp = 'wet weight at puberty';
 bibkey.Wwp = 'Viljoen1991';
 comment.Wwp = 'Estimated from Viljoen_et_al_1991_Fig1: weight at ~65 days';
 
-data.tp = 65; %#
+data.tp = 65; % time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture
 temp.tp = C2K(25); % 25°C, Viljoen et al. 1991
 units.tp = 'd';
 label.tp = 'time since birth at puberty';
 bibkey.tp = 'Viljoen1991';
 comment.tp = 'range 30-120 time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture';
 
-data.tp = 60; #
+data.tp = 60; % time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture
 temp.tp = C2K(25); % 25°C, Viljoen et al. 1991
 units.tp = 'd';
 label.tp = 'time since birth at puberty';
 bibkey.tp = 'Viljoen1992';
 comment.tp = 'time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture';
 
-data.tp2 = 65; #
+data.tp2 = 65; % range 30-120 time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture
 temp.tp2 = C2K(25); % 25°C, Viljoen et al. 1991
 units.tp2 = 'd';
 label.tp2 = 'time since birth at puberty';
 bibkey.tp2 = 'Viljoen1991';
 comment.tp2 = 'range 30-120 time since birth at puberty (first clitellum), 25C, cattle manure, 75-80% moisture';
 
-data.tp3 = 77; #
+data.tp3 = 77; % time since birth at puberty (first clitellum), 15, cattle manure, 75-80% moisture
 temp.tp3 = C2K(15); % 25°C, Viljoen et al. 1991
 units.tp3 = 'd';
 label.tp3 = 'time since birth at puberty';
@@ -152,7 +150,7 @@ bibkey.Ri_25 = 'Viljoen1991';
 comment.Ri_25 = 'Maximum cocoon production rate from  (Viljoen et al. 1991), 25C, cattle manure, 75-80% moisture, it is also same in Viljoen1992';
 
 data.Ri_15 = 17;
-% data.Ri_15 = 0.28; # 1.1  worms per cocoon, 0.26 cocoons/worm/day
+% data.Ri_15 = 0.28; % 1.1  worms per cocoon, 0.26 cocoons/worm/day
 data.Ri_15 = data.Ri_15 * 1.2; % Corrected multiplication for ammount of hatchlings per cocoon
 temp.Ri_15 = C2K(15); % 25°C, Viljoen et al. 1991
 units.Ri_15 = 'cocoons/worm/d'; 
@@ -161,7 +159,7 @@ bibkey.Ri_15 = 'Viljoen1992';
 comment.Ri_15 = 'Maximum cocoon production rate from (Viljoen et al. 1992), 15C, cattle manure, 75-80% moisture';
 
 
-data.Ri_18 = 0.28; # 1.1  worms per cocoon, 0.26 cocoons/worm/day
+data.Ri_18 = 0.28; % 1.1  worms per cocoon, 0.26 cocoons/worm/day
 data.Ri_18 = data.Ri_25 * 1.1; % Corrected multiplication
 temp.Ri_18 = C2K(25); % 25°C, Viljoen et al. 1991
 units.Ri_18 = 'cocoons/worm/d';
@@ -169,7 +167,7 @@ label.Ri_18 = 'maximum reproduction rate';
 bibkey.Ri_18 = 'Podolak2020';
 comment.Ri_18 = 'Maximum cocoon production rate from (Poodolak et al. 2020), 18C';
 
-data.Ri_20 = 0.185; %# Kovacevic2023 number of juevniles per ew divided by time of experiment (28days)
+data.Ri_20 = 0.185; % Kovacevic2023 number of juevniles per ew divided by time of experiment (28days)
 data.Ri_20 = data.Ri_20 * 2; % Corrected multiplication
 temp.Ri_20 = C2K(20); % 25°C, Viljoen et al. 1991
 units.Ri_20 = 'cocoons/worm/d';
@@ -360,9 +358,6 @@ label.temp.tW_podolak = 'temperature';
 bibkey.tW_podolak = 'Podolak2020';
 comment.tW_podolak='Digitized from Podolak2020 Fig1, control (0 g/kg TEB)';
 
-
-
-
 data.tW_Kova = [ ... % time (d), wet weight (g) at 0 mg/kg TEB
     0   0.01
     14  0.25
@@ -387,6 +382,13 @@ comment.tW_Kova='Digitized from Kovacevic_et_al_2023_Fig3, control (0 mg/kg TEB)
 %% set weights for all real data
 weights = setweights(data, []);
 
+% weights.ab_25 = 5*weights.ab_25; % 50% of all reared worms, Viljoen et al. 1991 21-
+weights.tW_Vilj = 10 * weights.tW_Vilj; % 10% of all reared worms, Viljoen et al. 1991 21-
+weights.tW_Vilj_2 = 10 * weights.tW_Vilj_2; % 10% of all reared worms, Viljoen et al. 1992 21-
+weights.tW_Vilj_3 = 10 * weights.tW_Vilj_3; % 10% of all reared worms, Viljoen et al. 1992 21-
+weights.tW_podolak = 15 * weights.tW_podolak; % 10% of all reared worms, Podolak et al. 2020
+
+
 %% set pseudodata and respective weights
 [data, units, label, weights] = addpseudodata(data, units, label, weights);
 weights.psd.p_M = 10 * weights.psd.p_M;
@@ -398,8 +400,14 @@ txtData.label = label;
 txtData.bibkey = bibkey;
 txtData.comment = comment;
 
-%% Group plots
+%% Group plots (separated subplots)
 set1 = {'tW_Vilj'}; subtitle1 = {'Growth: Viljoen et al. 1991'};
+set2 = {'tW_Vilj_2'}; subtitle2 = {'Growth: Viljoen et al. 1992'};
+set3 = {'tW_Vilj_3'}; subtitle3 = {'Growth: Viljoen et al. 1992 (15°C)'};
+set4 = {'tW_podolak'}; subtitle4 = {'Growth: Podolak 2020'};
+set5 = {'tW_Kova'}; subtitle5 = {'Growth: Kovacevic 2023'};
+metaData.grp.sets = {set1, set2, set3, set4, set5};
+metaData.grp.subtitle = {subtitle1, subtitle2, subtitle3, subtitle4, subtitle5};
 % set2 = {'tR_viljoen'}; subtitle2 = {'Cumulative reproduction: Viljoen et al. 1991'};
 % set3 = {'tRrate_data1'}; subtitle3 = {'Reproduction rate: Viljoen et al. 1991'};
 metaData.grp.sets = {set1};
@@ -473,12 +481,13 @@ bibkey = 'Viljoen1992'; type = 'Article'; bib = [ ...
 metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
 
 bibkey = 'Podolak2020'; type = 'Article'; bib = [ ...
-'author = {Podolak, K. and others}, ' ...
+'author = {Agnieszka Podolak, Joanna Kostecka, Anna Mazur-Pączka, Mariola Garczyńska, Grzegorz Pączka, Renata Szura}, ' ...
 'year = {2020}, ' ...
-'title = {The effect of tebuconazole on the earthworm Dendrobaena veneta: a full life cycle approach}, ' ...
-'journal = {Environmental Science and Pollution Research}, ' ...
-'volume = {27}, ' ...
-'pages = {1-12}'];
+'title = {Life Cycle of the Eisenia fetida and Dendrobaena veneta Earthworms (Oligohaeta, Lumbricidae)}, ' ...
+'journal = {Journal of Ecological Engineering}, ' ...
+'volume = {21}, ' ...
+'number = {1},' ...
+'doi = {10.12911/22998993/113410}, ' ...
+'pages = {40-45}'];
 metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
 
-2

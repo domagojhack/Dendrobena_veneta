@@ -23,14 +23,18 @@ par.h_a = 1.629e-08;  free.h_a   = 1;   units.h_a = '1/d^2';      label.h_a = 'W
 par.s_G = 0.0001;     free.s_G   = 0;   units.s_G = '-';          label.s_G = 'Gompertz stress coefficient'; 
 
 %% other parameters 
-par.T_A = 8000;       free.T_A   = 0;   units.T_A = 'K';          label.T_A = 'Arrhenius temperature'; 
-par.del_M = 0.050632;  free.del_M = 1;   units.del_M = '-';        label.del_M = 'shape coefficient'; 
-par.f = 1;            free.f     = 0;   units.f = '-';            label.f = 'scaled functional response for 0-var data'; 
-par.f_Kova = 1;    free.f_Kova  = 1;   units.f_Kova = '-';         label.f_Kova = 'f for Kovacevic et al. 2023'; 
-par.f_Vilj = 1;        free.f_Vilj = 1;   units.f_Vilj = '-';        label.f_Vilj = 'f for Viljoen et al. 1991'; 
+par.T_A = 8000;         free.T_A   = 0;     units.T_A = 'K';      label.T_A = 'Arrhenius temperature'; 
+par.del_M = 0.050632;   free.del_M = 1;     units.del_M = '-';    label.del_M = 'shape coefficient'; 
+par.f = 1;              free.f     = 0;     units.f = '-';        label.f = 'scaled functional response for 0-var data'; 
+par.f_Kova = 1;         free.f_Kova  = 1;   units.f_Kova = '-';   label.f_Kova = 'f for Kovacevic et al. 2023'; 
+par.f_Vilj = 1;         free.f_Vilj = 1;    units.f_Vilj = '-';   label.f_Vilj = 'f for Viljoen et al. 1991'; 
+par.f_Vilj_2 = 1;         free.f_Vilj_2 = 1;   units.f_Vilj_2 = '-';   label.f_Vilj_2 = 'f for Viljoen et al. 1992';
+par.f_Vilj_3 = 1;         free.f_Vilj_3 = 1;   units.f_Vilj_3 = '-';   label.f_Vilj_3 = 'f for Viljoen et al. 1992 (15C)';
+par.f_podolak = 1;        free.f_podolak = 1;  units.f_podolak = '-';  label.f_podolak = 'f for Podolak et al. 2020';
+par.f_Kova = 1;           free.f_Kova = 1;     units.f_Kova = '-';     label.f_Kova = 'f for Kovacevic et al. 2023';
 
 %% set chemical parameters from Kooy2010 
 [par, units, label, free] = addchem(par, units, label, free, metaData.phylum, metaData.class);
 
 %% Pack output: 
-txtPar.units = units; txtPar.label = label; par.free = free; 
+txtPar.units = units; txtPar.label = label; par.free = free;

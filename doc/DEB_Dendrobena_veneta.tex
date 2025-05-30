@@ -1,0 +1,214 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{parskip}
+
+% Setting up font to avoid fontspec issues
+\usepackage{noto}
+
+% Title and author
+\title{Dynamic Energy Budget (DEB) Theory Applied to \textit{Dendrobena veneta}}
+\author{}
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This document explains the application of Dynamic Energy Budget (DEB) theory to model the life history of the earthworm \textit{Dendrobena veneta} (European nightcrawler) using a MATLAB-based prediction function (\texttt{predict\_Dendrobena\_veneta.m}). DEB theory provides a framework for understanding how organisms allocate energy from food to growth, maintenance, and reproduction. We describe the core principles of DEB, detail how they are implemented in the prediction function, and illustrate their application to zero-variate and uni-variate data for \textit{D. veneta}. This explanation is aimed at readers new to DEB theory, with references to the provided MATLAB code.
+\end{abstract}
+
+\section{Introduction}
+Dynamic Energy Budget (DEB) theory, developed by Bas Kooijman \citep{Kooijman2010}, is a mechanistic framework for modeling the energy and mass flows in organisms throughout their life cycle. It is widely used in ecology and ecotoxicology to predict traits such as growth, reproduction, and lifespan. The MATLAB function \texttt{predict\_Dendrobena\_veneta.m}, part of the DEBtool toolbox, applies DEB theory to predict life history traits of the earthworm \textit{Dendrobena veneta} based on experimental data from studies like \citet{Viljoen1991, Viljoen1992, Kovacevic2023, Podolak2020}.
+
+This document explains the DEB theory concepts underlying the prediction function, focusing on how energy allocation, growth, and temperature effects are modeled. We break down the code’s structure and map it to DEB principles, making it accessible for those unfamiliar with the theory.
+
+\section{Overview of DEB Theory}
+DEB theory assumes that organisms assimilate energy from food into a \textit{reserve} compartment, which is then allocated to various processes. The key state variables are:
+\begin{itemize}
+    \item \textbf{Reserve ($E$)}: Energy stored from food, used for all metabolic processes.
+    \item \textbf{Structure ($V$)}: Physical biomass (volume, cm$^3$), representing core tissues.
+    \item \textbf{Maturity ($E_H$)}: Cumulative energy invested in development (e.g., reaching birth or puberty).
+    \item \textbf{Reproduction buffer ($E_R$)}: Energy allocated to reproduction in adults.
+\end{itemize}
+
+Energy allocation follows these rules:
+\begin{itemize}
+    \item Food is assimilated into reserve with efficiency $\kappa_X$ (digestion efficiency).
+    \item Mobilized reserve energy is split: a fraction $\kappa$ goes to somatic maintenance and growth, while $1-\kappa$ goes to maturity maintenance and reproduction (or maturation in juveniles).
+    \item Maintenance has priority: somatic maintenance (proportional to $V$) and maturity maintenance (proportional to $E_H$) are paid first.
+    \item Remaining energy supports growth (increasing $V$) or reproduction/maturation.
+\end{itemize}
+
+Growth is modeled using structural length ($L = V^{1/3}$, cm), related to physical length ($L_w = L / \delta_M$, where $\delta_M$ is a shape coefficient). Metabolic rates are temperature-dependent, adjusted using an Arrhenius relationship. The standard DEB model (\texttt{std}), used in the code, assumes isomorphic growth (constant body shape).
+
+\section{DEB Implementation in \texttt{predict\_Dendrobena\_veneta.m}}
+The \texttt{predict\_Dendrobena\_veneta.m} function predicts life history traits for \textit{D. veneta} using DEB parameters, data, and auxiliary data (e.g., temperatures). Below, we explain the main sections of the code and their DEB underpinnings.
+
+\subsection{Unpacking Parameters and Data}
+\begin{verbatim}
+cPar = parscomp_st(par); vars_pull(par);
+vars_pull(cPar); vars_pull(data); vars_pull(auxData);
+\end{verbatim}
+The function unpacks core parameters (e.g., zoom factor $z$, energy conductance $v$, allocation fraction $\kappa$), derived parameters (e.g., maximum structural length $L_m$), and data (e.g., age at birth, growth curves). The \texttt{parscomp\_st} function computes variables like $L_m = z \cdot v / \kappa \cdot [p_M]$, where $[p_M]$ is specific maintenance cost.
+
+\textbf{DEB Context}: Parameters define the energy budget. For example, $z = 0.3431$, $v = 0.01477$ cm/d, $\kappa = 0.5756$, and $[p_M] = 4740.8319$ J/d.cm$^3$ (from \texttt{pars\_init\_Dendrobena\_veneta.m}) determine assimilation, mobilization, and maintenance rates.
+
+\subsection{Temperature Correction}
+\begin{verbatim}
+TC_ab_25 = tempcorr(auxData.temp.ab_25, par.T_ref, par.T_A);
+TC_ab_20 = tempcorr(auxData.temp.ab_20, par.T_ref, par.T_A);
+...
+\end{verbatim}
+Metabolic rates are adjusted for temperature using the Arrhenius equation:
+\begin{equation}
+\text{TC} = \exp\left(\frac{T_A}{T_{\text{ref}}} - \frac{T_A}{T}\right),
+\end{equation}
+where $T_A = 8000$ K (Arrhenius temperature), $T_{\text{ref}} = 293.15$ K (20°C), and $T$ is the experimental temperature (e.g., 25°C for \texttt{ab\_25}).
+
+\textbf{DEB Context}: Temperature affects all rates (e.g., maintenance, growth, reproduction). The \texttt{tempcorr} function ensures predictions match data at 15°C, 18°C, 20°C, and 25°C.
+
+\subsection{Zero-Variate Predictions}
+Zero-variate data are single-point traits (e.g., age at birth, weight at puberty). The code predicts these using DEB equations.
+
+\subsubsection{Life Cycle}
+\begin{verbatim}
+pars_tp = [g k l_T v_Hb v_Hp];
+[t_p, t_b, l_p, l_b, info] = get_tp(pars_tp, f);
+\end{verbatim}
+The \texttt{get\_tp} function computes scaled times ($t_b$, $t_p$) and lengths ($l_b = L_b / L_m$, $l_p = L_p / L_m$) at birth ($E_H = E_{Hb} = 5.229$ J) and puberty ($E_H = E_{Hp} = 1055$ J), using parameters like energy investment ratio $g$, maintenance rate $k$, and scaled maturity ($v_{Hb}$, $v_{Hp}$). The scaled functional response $f = 1$ (ad libitum food) is used.
+
+\textbf{DEB Context}: Birth and puberty mark maturity thresholds. Scaled lengths and times are computed based on the standard DEB model.
+
+\subsubsection{Birth}
+\begin{verbatim}
+L_b = L_m * l_b;                  % cm, structural length at birth
+Lw_b = L_b / del_M;               % cm, physical length at birth
+Ww_b_25 = L_b^3 * (1 + f * ome);  % g, wet weight at birth at 25C
+aT_b_25 = t_b / k_M / TC_ab_25;   % d, age at birth at 25C
+\end{verbatim}
+Structural length at birth ($L_b$) is scaled by maximum length ($L_m$). Physical length ($L_w = L_b / \delta_M$, $\delta_M = 0.050632$) converts to observable length. Wet weight ($W_w = L_b^3 (1 + f \cdot \omega)$) includes structure ($L_b^3$) and reserve (proportional to $f \cdot \omega$, where $\omega$ is a chemical parameter). Age at birth ($a_b = t_b / k_M / \text{TC}$) is adjusted for temperature, where $k_M = [p_M] / [E_G]$ is the maintenance rate coefficient.
+
+\textbf{DEB Context}: Birth occurs when maturity reaches $E_{Hb}$. Weight reflects both structure and reserve, and age is temperature-dependent. Predictions match data (e.g., \texttt{ab\_25 = 42.1 d}, \texttt{Wwb\_25 = 0.024 g}).
+
+\subsubsection{Puberty}
+\begin{verbatim}
+L_p = L_m * l_p;                  % cm, structural length at puberty
+Lw_p = L_p / del_M;               % cm, physical length at puberty
+Ww_p = L_p^3 * (1 + f * ome);     % g, wet weight at puberty
+aT_p = (t_p - t_b) / k_M / TC_tp; % d, age since birth at puberty
+\end{verbatim}
+Similar to birth, but for puberty ($E_H = E_{Hp}$). Time to puberty ($a_p = (t_p - t_b) / k_M / \text{TC}$) is the duration from birth to clitellum formation.
+
+\textbf{DEB Context}: Puberty marks the shift to reproduction. Predictions match data (e.g., \texttt{tp = 65 d}, \texttt{Wwp = 1.09495 g}).
+
+\subsubsection{Ultimate Size}
+\begin{verbatim}
+l_i = f - l_T;                    % -, scaled ultimate length
+L_i = L_m * l_i;                  % cm, ultimate structural length
+Lw_i = L_i / del_M;               % cm, ultimate physical length
+Ww_i = L_i^3 * (1 + f * ome);     % g, ultimate wet weight
+\end{verbatim}
+Ultimate length ($l_i = f - l_T$, where $l_T$ is scaled heating length) is reached when growth ceases (maintenance balances growth allocation). Weight includes structure and reserve.
+
+\textbf{DEB Context}: Matches data (e.g., \texttt{Li = 11 cm}, \texttt{Wwi = 2.31172 g}).
+
+\subsubsection{Reproduction}
+\begin{verbatim}
+pars_R = [kap; kap_R; g; k_J; k_M; L_T; v; U_Hb; U_Hp];
+RT_i_20 = TC_20 * reprod_rate(L_i, f_Kova, pars_R);  % #/d, at 20C
+\end{verbatim}
+The \texttt{reprod\_rate} function computes cocoon production rate, using $\kappa$, reproduction efficiency $\kappa_R = 0.475$, and food level ($f_{\text{Kova}}$, etc.). Temperature correction (\texttt{TC\_20}) adjusts the rate.
+
+\textbf{DEB Context}: Reproduction uses energy from the $1-\kappa$ branch, converted to cocoons with efficiency $\kappa_R$. Matches data (e.g., \texttt{Ri\_25 = 0.308 cocoons/worm/d}).
+
+\subsubsection{Life Span}
+\begin{verbatim}
+pars_tm = [g; l_T; h_a / k_M^2; s_G];
+t_m = get_tm_s(pars_tm, f, l_b);
+aT_m = t_m / k_M / TC_am;
+\end{verbatim}
+Life span is modeled using aging parameters: Weibull acceleration ($h_a = 1.629 \times 10^{-8}$ 1/d$^2$) and Gompertz stress ($s_G = 0.0001$). Scaled life span ($t_m$) is converted to real time.
+
+\textbf{DEB Context}: Matches data (e.g., \texttt{am = 6*365 d}).
+
+\subsection{Uni-Variate Predictions (Growth Curves)}
+\begin{verbatim}
+f = f_Kova; ir_B = 3 / k_M + 3 * f * L_m / v; rT_B = TC_20 / ir_B;
+L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+L = L_i - (L_i - L_b) * exp(- rT_B * tW_Kova(:,1));
+EWw_Kova = L.^3 * (1 + f * ome);
+\end{verbatim}
+Growth follows the von Bertalanffy equation:
+\begin{equation}
+L(t) = L_i - (L_i - L_b) \exp(-r_B \cdot t),
+\end{equation}
+where $r_B = \text{TC} / (3 / k_M + 3 f L_m / v)$ is the growth rate, adjusted for temperature. Wet weight is $L(t)^3 (1 + f \cdot \omega)$. This is applied to datasets (\texttt{tW\_Kova}, \texttt{tW\_Vilj}, etc.) at different temperatures and food levels.
+
+\textbf{DEB Context}: Growth reflects the balance between reserve mobilization and maintenance. The code handles initial conditions (e.g., \texttt{w0\_podo = 0.93 g} for \texttt{tW\_podolak}).
+
+\subsection{Additional Predictions}
+The code includes extra zero-variate (e.g., \texttt{ab\_15}, \texttt{tp3}) and uni-variate (e.g., \texttt{tW\_Vilj\_2}) predictions, following the same DEB logic but tailored to specific datasets.
+
+\section{Key DEB Parameters}
+From \texttt{pars\_init\_Dendrobena\_veneta.m}:
+\begin{itemize}
+    \item $z = 0.3431$: Scales assimilation rate.
+    \item $v = 0.01477$ cm/d: Reserve mobilization rate.
+    \item $\kappa = 0.5756$: Fraction to soma.
+    \item $[p_M] = 4740.8319$ J/d.cm$^3$: Maintenance cost.
+    \item $[E_G] = 4181.7688$ J/cm$^3$: Cost of structure.
+    \item $E_{Hb} = 5.229$ J, $E_{Hp} = 1055$ J: Maturity thresholds.
+    \item $\kappa_R = 0.475$: Reproduction efficiency.
+    \item $\delta_M = 0.050632$: Shape coefficient.
+    \item $T_A = 8000$ K: Temperature sensitivity.
+\end{itemize}
+These parameters define \textit{D. veneta}’s energy budget and drive predictions.
+
+\section{Conclusion}
+The \texttt{predict\_Dendrobena\_veneta.m} function applies DEB theory to model \textit{D. veneta}’s life history, predicting traits like age at birth, weight, and reproduction rate across temperatures (15–25°C) and food levels. It uses the standard DEB model, von Bertalanffy growth, and temperature corrections to match experimental data. This implementation demonstrates DEB’s power to integrate diverse datasets into a unified energetic framework.
+
+For further learning, consult \citet{Kooijman2010} or the Add-my-Pet portal (\url{https://www.bio.vu.nl/thb/deb/deblab/add_my_pet/}).
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
+
+\begin{thebibliography}{9}
+\bibitem{Kooijman2010}
+Kooijman, S. A. L. M. (2010).
+\textit{Dynamic Energy Budget Theory for Metabolic Organisation}.
+Cambridge University Press.
+
+\bibitem{Viljoen1991}
+Viljoen, S. A., \& Reinecke, A. J. (1991).
+Life-cycle of the European compost worm \textit{Dendrobaena veneta} (Oligochaeta).
+\textit{South African Journal of Zoology}, 26, 41--45.
+
+\bibitem{Viljoen1992}
+Viljoen, S. A., \& Reinecke, A. J. (1992).
+The effect of temperature on the life cycle of the European compost worm \textit{Dendrobaena veneta} (Oligochaeta).
+\textit{South African Journal of Zoology}, 27, 1--5.
+
+\bibitem{Kovacevic2023}
+Kovačević, A., et al. (2023).
+Effects of Tebuconazole on the Earthworm \textit{Dendrobaena veneta}: Full Life Cycle Approach.
+\textit{Agriculture}, 13, 2119.
+
+\bibitem{Podolak2020}
+Podolak, A., et al. (2020).
+Life Cycle of the \textit{Eisenia fetida} and \textit{Dendrobaena veneta} Earthworms (Oligohaeta, Lumbricidae).
+\textit{Journal of Ecological Engineering}, 21(1), 40--45.
+\end{thebibliography}
