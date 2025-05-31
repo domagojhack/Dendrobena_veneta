@@ -9,15 +9,12 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   % temperature correction factors
   TC_ab_25  = tempcorr(auxData.temp.ab_25,  par.T_ref, par.T_A);
   TC_ab_20  = tempcorr(auxData.temp.ab_20,  par.T_ref, par.T_A);
-  % TC_ab_18  = tempcorr(auxData.temp.ab_18,  par.T_ref, par.T_A);
-  TC_tp  = tempcorr(auxData.temp.tp,  par.T_ref, par.T_A);
-  %TC_Ri_20  = tempcorr(auxData.temp.Ri_20,  par.T_ref, par.T_A);
-  TC_am = tempcorr(auxData.temp.am,  par.T_ref, par.T_A);
-  TC_20 = tempcorr(auxData.temp.Wwb_20,  par.T_ref, par.T_A);
-  TC_25 = tempcorr(auxData.temp.Wwb_25,  par.T_ref, par.T_A);
-  % TC_15 = tempcorr(auxData.temp.Wwb_15,  par.T_ref, par.T_A);
-  TC_15 = tempcorr(auxData.temp.Ri_15,  par.T_ref, par.T_A);
-  TC_18 = tempcorr(auxData.temp.Ri_18,  par.T_ref, par.T_A);
+  TC_tp     = tempcorr(auxData.temp.tp,  par.T_ref, par.T_A);
+  TC_am     = tempcorr(auxData.temp.am,  par.T_ref, par.T_A);
+  TC_20     = tempcorr(auxData.temp.Wwb_20,  par.T_ref, par.T_A);
+  TC_25     = tempcorr(auxData.temp.Wwb_25,  par.T_ref, par.T_A);
+  TC_15     = tempcorr(auxData.temp.Ri_15,  par.T_ref, par.T_A);
+  TC_18     = tempcorr(auxData.temp.Ri_18,  par.T_ref, par.T_A);
 
   % zero-variate predictions
 
@@ -135,7 +132,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
   L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
   w0_podo = 0.93; % initial wet weight from Podolak et al. 2020
-  L_t0 = (w0_podo/(1+f*ome)).^(1/3);
+  L_t0 = (w0_podo/(1+f*ome)).^(1/3); % transforming weight into "lenght"
   L = L_i - (L_i - L_t0) * exp( - rT_B * tW_podolak(:,1));
   EWw_podolak = L.^3 * (1 + f * ome);
   prdData.tW_podolak = EWw_podolak;
