@@ -28,10 +28,15 @@ par.del_M = 0.050632;   free.del_M = 1;     units.del_M = '-';    label.del_M = 
 par.f = 1;              free.f     = 0;     units.f = '-';        label.f = 'scaled functional response for 0-var data'; 
 par.f_Kova = 1;         free.f_Kova  = 1;   units.f_Kova = '-';   label.f_Kova = 'f for Kovacevic et al. 2023'; 
 par.f_Vilj = 1;         free.f_Vilj = 1;    units.f_Vilj = '-';   label.f_Vilj = 'f for Viljoen et al. 1991'; 
-par.f_Vilj_2 = 1;         free.f_Vilj_2 = 1;   units.f_Vilj_2 = '-';   label.f_Vilj_2 = 'f for Viljoen et al. 1992';
-par.f_Vilj_3 = 1;         free.f_Vilj_3 = 1;   units.f_Vilj_3 = '-';   label.f_Vilj_3 = 'f for Viljoen et al. 1992 (15C)';
-par.f_podolak = 1;        free.f_podolak = 1;  units.f_podolak = '-';  label.f_podolak = 'f for Podolak et al. 2020';
-par.f_Kova = 1;           free.f_Kova = 1;     units.f_Kova = '-';     label.f_Kova = 'f for Kovacevic et al. 2023';
+par.f_Vilj_2 = 1;       free.f_Vilj_2 = 1;  units.f_Vilj_2 = '-'; label.f_Vilj_2 = 'f for Viljoen et al. 1992';
+par.f_Vilj_3 = 1;       free.f_Vilj_3 = 1;  units.f_Vilj_3 = '-'; label.f_Vilj_3 = 'f for Viljoen et al. 1992 (15C)';
+par.f_podolak = 1;      free.f_podolak = 1; units.f_podolak = '-';label.f_podolak = 'f for Podolak et al. 2020';
+
+% Add Fayolle et al. 1997 functional responses for each dataset
+par.f_Fayolle1 = 1;     free.f_Fayolle1 = 1; units.f_Fayolle1 = '-'; label.f_Fayolle1 = 'f for Fayolle et al. 1997 (paper sludge, 10C)';
+par.f_Fayolle2 = 1;     free.f_Fayolle2 = 1; units.f_Fayolle2 = '-'; label.f_Fayolle2 = 'f for Fayolle et al. 1997 (paper sludge, 15C)';
+
+par.f_Geza = 1;         free.f_Geza = 1;     units.f_Geza = '-';   label.f_Geza = 'f for Geza et al. 2023';
 
 %% set chemical parameters from Kooy2010 
 [par, units, label, free] = addchem(par, units, label, free, metaData.phylum, metaData.class);

@@ -124,6 +124,12 @@ label.Li = 'ultimate body length';
 bibkey.Li = 'Hackenberger2019';
 comment.Li = '';
 
+data.Wwp2 = 1.42;
+temp.Wwp2 = C2K(27);
+units.Wwp2 = 'g';
+label.Wwp2 = 'ultimate wet weight';
+bibkey.Wwp2 = "Gezahegn2024";
+comment.Wwp2 = 'Maximum body weight from Gezahegn et al. 2024, '
 
 %Hackenberger DK, Hackenberger DK, Đerđ T, Hackenberger BK. ErIK-a software-based identification key for earthworm species of Croatia. Zootaxa. 2019 Jun 6;4613(3):zootaxa.4613.3.11. doi: 10.11646/zootaxa.4613.3.11. PMID: 31716407.
 
@@ -157,6 +163,14 @@ units.Ri_15 = 'cocoons/worm/d';
 label.Ri_15 = 'maximum reproduction rate';
 bibkey.Ri_15 = 'Viljoen1992';
 comment.Ri_15 = 'Maximum cocoon production rate from (Viljoen et al. 1992), 15C, cattle manure, 75-80% moisture';
+
+data.Ri_27 = 0.29; % 1.1  worms per cocoon, 0.26 cocoons/worm/day
+data.Ri_27 = data.Ri_27 * 0.95; % Corrected multiplication
+temp.Ri_27 = C2K(25); % 25°C, Viljoen et al. 1991
+units.Ri_27 = 'cocoons/worm/d';
+label.Ri_27 = 'maximum reproduction rate';
+bibkey.Ri_27 = 'Gezahegn2024';
+comment.Ri_27 = 'Maximum cocoon production rate from (Gezahegn et al. 2024), 27C';
 
 
 data.Ri_18 = 0.28; % 1.1  worms per cocoon, 0.26 cocoons/worm/day
@@ -378,6 +392,213 @@ label.temp.tW_Kova = 'temperature';
 bibkey.tW_Kova = 'Kovacevic2023'; 
 comment.tW_Kova='Digitized from Kovacevic_et_al_2023_Fig3, control (0 mg/kg TEB)';
 
+
+data.tW_Fayolle1 = [... 
+    0   0.02;
+    10  0.06;
+    20  0.11;
+    30  0.18;
+    40  0.28;
+    50  0.4;
+    60  0.58;
+    80  0.98;
+    100 1.56;
+    120 2.12;
+    140 2.26;
+    160 2.3;
+    190 2.35
+]
+units.tW_Fayolle1   = {'d', 'g'};
+label.tW_Fayolle1 = {'time', 'wet weight'};
+temp.tW_Fayolle1    = C2K(10);
+units.temp.tW_Fayolle1 = 'K';
+label.temp.tW_Fayolle1 = 'temperature';
+bibkey.tW_Fayolle1 = 'Fayolle1997';
+comment.tW_Fayolle1='Digitized from Fayolle1997 Fig1, paper sludge, 10°C';
+
+data.tW_Fayolle2 = [...
+    0   0.03;
+    10  0.11;
+    20  0.27;
+    30  0.44;
+    40  0.7;
+    60  1.65;
+    80  2.01;
+    100 2.22;
+    120 2.34;
+    140 2.5;
+    160 2.71;
+    190 2.72
+]
+units.tW_Fayolle2   = {'d', 'g'};
+label.tW_Fayolle2 = {'time', 'wet weight'};
+temp.tW_Fayolle2    = C2K(15);
+units.temp.tW_Fayolle2 = 'K';
+label.temp.tW_Fayolle2 = 'temperature';
+bibkey.tW_Fayolle2 = 'Fayolle1997';
+comment.tW_Fayolle2='Digitized from Fayolle1997 Fig1, paper sludge, 15°C';
+
+data.tW_Fayolle3 = [...
+    0   0.04;
+    10  0.14;
+    20  0.31;
+    30  0.64;
+    40  0.84;
+    60  1.97;
+    80  2.28;
+    100 2.43;
+    120 2.71;
+    140 2.73;
+    160 2.74;
+    190 2.76
+]
+units.tW_Fayolle3   = {'d', 'g'};
+label.tW_Fayolle3 = {'time', 'wet weight'};
+temp.tW_Fayolle3    = C2K(20);
+units.temp.tW_Fayolle3 = 'K';
+label.temp.tW_Fayolle3 = 'temperature';
+bibkey.tW_Fayolle3 = 'Fayolle1997';
+comment.tW_Fayolle3='Digitized from Fayolle1997 Fig1, paper sludge, 20°C';
+
+data.tW_Fayolle4 = [...
+    0   0.04;
+    10  0.18;
+    20  0.45;
+    30  0.87;
+    40  0.88;
+    60  1.96;
+    80  2.35;
+    100 2.64;
+    120 2.6;
+    140 2.63;
+    160 2.8;
+    190 2.78
+]
+units.tW_Fayolle4   = {'d', 'g'};
+label.tW_Fayolle4 = {'time', 'wet weight'};
+temp.tW_Fayolle4    = C2K(25);
+units.temp.tW_Fayolle4 = 'K';
+label.temp.tW_Fayolle4 = 'temperature';
+bibkey.tW_Fayolle4 = 'Fayolle1997';
+comment.tW_Fayolle4='Digitized from Fayolle1997 Fig1, paper sludge, 25°C';
+
+data.tW_Fayolle5 = [...
+    0   0.03;
+    10  0.05;
+    20  0.06;
+    30  0.1;
+    40  0.16;
+    50  0.21;
+    60  0.29;
+    80  0.5;
+    100 0.89;
+    120 1.31;
+    140 1.64;
+    160 1.89;
+    190 1.97
+]
+units.tW_Fayolle5   = {'d', 'g'};
+label.tW_Fayolle5 = {'time', 'wet weight'};
+temp.tW_Fayolle5    = C2K(10);
+units.temp.tW_Fayolle5 = 'K';
+label.temp.tW_Fayolle5 = 'temperature';
+bibkey.tW_Fayolle5 = 'Fayolle1997';
+comment.tW_Fayolle5='Digitized from Fayolle1997 Fig2, horse manure, 10°C';
+
+data.tW_Fayolle6 = [
+    0   0.03;
+    10  0.07;
+    20  0.11;
+    30  0.2;
+    40  0.29;
+    60  0.57;
+    80  1.03;
+    100 1.5;
+    120 1.78;
+    140 1.78;
+    160 1.88;
+    190 2.02;
+]
+units.tW_Fayolle6   = {'d', 'g'};
+label.tW_Fayolle6 = {'time', 'wet weight'};
+temp.tW_Fayolle6    = C2K(15);
+units.temp.tW_Fayolle6 = 'K';
+label.temp.tW_Fayolle6 = 'temperature';
+bibkey.tW_Fayolle6 = 'Fayolle1997';
+comment.tW_Fayolle6='Digitized from Fayolle1997 Fig2, horse manure, 15°C';
+
+data.tW_Fayolle7 = [
+    0   0.03;
+    10  0.07;
+    20  0.11;
+    30  0.22;
+    40  0.29;
+    60  0.69;
+    80  1.16;
+    100 1.53;
+    120 1.79;
+    140 2.03;
+    160 2.13;
+    190 1.82
+]
+units.tW_Fayolle7   = {'d', 'g'};
+label.tW_Fayolle7 = {'time', 'wet weight'};
+temp.tW_Fayolle7    = C2K(20);
+units.temp.tW_Fayolle7 = 'K';
+label.temp.tW_Fayolle7 = 'temperature';
+bibkey.tW_Fayolle7 = 'Fayolle1997';
+comment.tW_Fayolle7='Digitized from Fayolle1997 Fig2, horse manure, 20°C';
+
+
+data.tW_Fayolle8 = [
+    0   0.03;
+    10  0.09;
+    20  0.14;
+    30  0.33;
+    40  0.43;
+    60  0.89;
+    80  1.24;
+    100 1.57;
+    120 1.81;
+    140 1.9;
+    160 2.04;
+    190 2.11
+]
+units.tW_Fayolle8   = {'d', 'g'};
+label.tW_Fayolle8 = {'time', 'wet weight'};
+temp.tW_Fayolle8    = C2K(25);
+units.temp.tW_Fayolle8 = 'K';
+label.temp.tW_Fayolle8 = 'temperature';
+bibkey.tW_Fayolle8 = 'Fayolle1997';
+comment.tW_Fayolle8='Digitized from Fayolle1997 Fig2, horse manure, 25°C';
+
+
+data.TRi_f1=[...
+    15  0.37;
+    20  0.35;
+    25  0.57;
+]
+% convert from °C to K
+data.TRi_f1(:,1) = C2K(data.TRi_f1(:,1));
+units.TRi_f1 = {'K', 'cocoons/worm/d'};
+label.TRi_f1 = {'temperature', 'reproduction rate'};
+bibkey.TRi_f1 = 'Fayolle1997';
+comment.TRi_f1 = 'Digitized from Fayolle1997 Table2, Horse manure';
+
+
+data.TRi_f2=[...
+    15  0.57;
+    20  0.68;
+    25  0.74;
+]
+% convert from °C to K
+data.TRi_f2(:,1) = C2K(data.TRi_f2(:,1));
+units.TRi_f2 = {'K', 'cocoons/worm/d'};
+label.TRi_f2 = {'temperature', 'reproduction rate'};
+bibkey.TRi_f2 = 'Fayolle1997';
+comment.TRi_f2 = 'Digitized from Fayolle1997 Table2, Paper sludge';
+
+
 %% set weights for all real data
 weights = setweights(data, []);
 
@@ -386,6 +607,16 @@ weights.tW_Vilj_2 = 15 * weights.tW_Vilj_2;
 weights.tW_Vilj_3 = 15 * weights.tW_Vilj_3;
 weights.tW_podolak = 5 * weights.tW_podolak;
 weights.tW_Kova = 5 * weights.tW_Kova; 
+weights.tW_Fayolle1 = 5 * weights.tW_Fayolle1;
+weights.tW_Fayolle2 = 5 * weights.tW_Fayolle2;
+weights.tW_Fayolle3 = 5 * weights.tW_Fayolle3;
+weights.tW_Fayolle4 = 5 * weights.tW_Fayolle4;
+weights.tW_Fayolle5 = 5 * weights.tW_Fayolle5;
+weights.tW_Fayolle6 = 5 * weights.tW_Fayolle6;
+weights.tW_Fayolle7 = 5 * weights.tW_Fayolle7;
+weights.tW_Fayolle8 = 5 * weights.tW_Fayolle8;
+weights.TRi_f1 = 3 * weights.TRi_f1;
+weights.TRi_f2 = 3 * weights.TRi_f2;
 
 % set pseudodata and respective weights
 [data, units, label, weights] = addpseudodata(data, units, label, weights);
@@ -404,8 +635,13 @@ set2 = {'tW_Vilj_2'}; subtitle2 = {'Growth: Viljoen et al. 1992'};
 set3 = {'tW_Vilj_3'}; subtitle3 = {'Growth: Viljoen et al. 1992 (15°C)'};
 set4 = {'tW_podolak'}; subtitle4 = {'Growth: Podolak 2020'};
 set5 = {'tW_Kova'}; subtitle5 = {'Growth: Kovacevic 2023'};
-metaData.grp.sets = {set1, set2, set3, set4, set5};
-metaData.grp.subtitle = {subtitle1, subtitle2, subtitle3, subtitle4, subtitle5};
+set6 = {'tW_Fayolle1', 'tW_Fayolle2', 'tW_Fayolle3', 'tW_Fayolle4', ...
+        'tW_Fayolle5', 'tW_Fayolle6', 'tW_Fayolle7', 'tW_Fayolle8'};
+subtitle6 = {'Growth: Fayolle et al. 1997'};
+set7 = {'TRi_f1', 'TRi_f2'}; subtitle7 = {'Reproduction rate: Fayolle1997'};
+
+metaData.grp.sets = {set1, set2, set3, set4, set5, set6, set7};
+metaData.grp.subtitle = {subtitle1, subtitle2, subtitle3, subtitle4, subtitle5, subtitle6, subtitle7};
 % set2 = {'tR_viljoen'}; subtitle2 = {'Cumulative reproduction: Viljoen et al. 1991'};
 % set3 = {'tRrate_data1'}; subtitle3 = {'Reproduction rate: Viljoen et al. 1991'};
 metaData.grp.sets = {set1};
@@ -487,5 +723,23 @@ bibkey = 'Podolak2020'; type = 'Article'; bib = [ ...
 'number = {1},' ...
 'doi = {10.12911/22998993/113410}, ' ...
 'pages = {40-45}'];
+metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
+
+bibkey = 'Fayolle1997'; type = 'Article'; bib = [ ...
+'author = {Fayolle L., Michaud H., Cluteau D., Stawiecki J.}, ' ...
+'year = {1997}, ' ...
+'title = {Influence of temperature and food source on the life cycle of the earthworm Dendrobeaena veneta (Oligochaeta)}, ' ...
+'journal = {Soil Biology and Biochemistry}, ' ...
+'volume = {29}, ' ...
+'pages = {747-750}'];
+metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
+
+bibkey = 'Gezahegn2024'; type = 'Article'; bib = [ ...
+'author = {Gezahegn Degefe Teferedegn and Chirotaw Ayele}, ' ...
+'year = {2024}, ' ...
+'title = {Life Cycle Patterns of Epigeic Earthworm Species (Eisenia fetida, Eisenia andrei, and Dendrobaena veneta) in a Blend of Brewery Sludge and Cow Dung}, ' ...
+'journal = {Hindawi - International Journal of Zoology}, ' ...
+'volume = {2024}, ' ...
+];
 metaData.biblist.(bibkey) = ['''@', type, '{', bibkey, ', ' bib, '}'';'];
 

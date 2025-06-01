@@ -15,15 +15,16 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   TC_25     = tempcorr(auxData.temp.Wwb_25,  par.T_ref, par.T_A);
   TC_15     = tempcorr(auxData.temp.Ri_15,  par.T_ref, par.T_A);
   TC_18     = tempcorr(auxData.temp.Ri_18,  par.T_ref, par.T_A);
-
+  TC_27     = tempcorr(auxData.temp.Ri_27,  par.T_ref, par.T_A);
+  TC_10     = tempcorr(auxData.temp.tW_Fayolle1,  par.T_ref, par.T_A);
+  
   % zero-variate predictions
 
   % life cycle
   pars_tp = [g k l_T v_Hb v_Hp];
   [t_p, t_b, l_p, l_b, info] = get_tp(pars_tp, f);
   
-
-   % birth
+  % birth
   L_b = L_m * l_b;                  % cm, structural length at birth at f
   Lw_b = L_b/ del_M;                % cm, physical length at birth at f
   Ww_b_25 = L_b^3 * (1 + f * ome);
@@ -49,6 +50,8 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   RT_i_25 = TC_25 * reprod_rate(L_i, f_Vilj, pars_R);             % #/d, ultimate reproduction rate at T
   RT_i_15 = TC_15 * reprod_rate(L_i, f_Vilj_3, pars_R); % adjust f_Vilj_3 if needed
   RT_i_18 = TC_18 * reprod_rate(L_i, f_podolak, pars_R); % #/d, ultimate reproduction rate at T
+  RT_i_27 = TC_18 * reprod_rate(L_i, f_Geza, pars_R); % #/d, ultimate reproduction rate at T
+
   % life span
   pars_tm = [g; l_T; h_a/ k_M^2; s_G];  % compose parameter vector at T_ref
   t_m = get_tm_s(pars_tm, f, l_b);      % -, scaled mean life span at T_ref
@@ -65,11 +68,14 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   prdData.Wwb_25 = Ww_b_25;
   prdData.Wwb_20 = Ww_b_20;
   prdData.Wwp = Ww_p;
+  prdData.Wwp2 = Ww_p; % Add real calculations 
   prdData.Wwi = Ww_i;
   prdData.Ri_20  = RT_i_20;
   prdData.Ri_25  = RT_i_25;
   prdData.Ri_15  = RT_i_15;
   prdData.Ri_18 = RT_i_18;
+  prdData.Ri_27 = RT_i_27;
+
   % --- Univariate predictions ---
   % uni-variate data : time-wet weight of 46 individual worms from 2
   % separate experiments
@@ -137,7 +143,95 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   EWw_podolak = L.^3 * (1 + f * ome);
   prdData.tW_podolak = EWw_podolak;
   
-end
+
+  % tw_Fayolle1
+  f = f_Fayolle1; TC = TC_10;
+  ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
+  L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+  L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle1(:,1));
+  EWw_Fayolle1 = L.^3 * (1 + f * ome);
+  prdData.tW_Fayolle1 = EWw_Fayolle1;
+
+  % tw_Fayolle2
+  f = f_Fayolle1; TC = TC_15;
+  ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
+  L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+  L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle2(:,1));
+  EWw_Fayolle2 = L.^3 * (1 + f * ome);
+  prdData.tW_Fayolle2 = EWw_Fayolle2;
+
+  % tw_Fayolle3
+  f = f_Fayolle1; TC = TC_15;
+  ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
+  L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+  L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle3(:,1));
+  EWw_Fayolle3 = L.^3 * (1 + f * ome);
+  prdData.tW_Fayolle3 = EWw_Fayolle3;
+
+  % tw_Fayolle4
+  f = f_Fayolle1; TC = TC_15;
+  ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
+  L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+  L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle4(:,1));
+  EWw_Fayolle4 = L.^3 * (1 + f * ome);
+  prdData.tW_Fayolle4 = EWw_Fayolle4;
+
+  % tw Fayolle5
+  f = f_Fayolle2; TC = TC_15;
+  ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
+  L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+  L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle5(:,1));
+  EWw_Fayolle5 = L.^3 * (1 + f * ome);
+  prdData.tW_Fayolle5 = EWw_Fayolle5;
+
+  % tw Fayolle6
+  f = f_Fayolle2; TC = TC_15;
+  ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
+  L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+  L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle6(:,1));
+  EWw_Fayolle6 = L.^3 * (1 + f * ome);
+  prdData.tW_Fayolle6 = EWw_Fayolle6;
+
+  % tw Fayolle7
+  f = f_Fayolle2; TC = TC_15;
+  ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
+  L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+  L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle7(:,1));
+  EWw_Fayolle7 = L.^3 * (1 + f * ome);
+  prdData.tW_Fayolle7 = EWw_Fayolle7;
+
+  % tw Fayolle8
+  f = f_Fayolle2; TC = TC_15;
+  ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
+  L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
+  L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle8(:,1));
+  EWw_Fayolle8 = L.^3 * (1 + f * ome);
+  prdData.tW_Fayolle8 = EWw_Fayolle8;
+
+  %TRi_f1
+  % RT_i_27 = TC_18 * reprod_rate(L_i, f_Geza, pars_R);
+
+  RT_i_15_Fay1 = TC_15 * reprod_rate(L_i, f_Fayolle1, pars_R);
+  RT_i_20_Fay1 = TC_20 * reprod_rate(L_i, f_Fayolle1, pars_R);
+  RT_i_25_Fay1 = TC_25 * reprod_rate(L_i, f_Fayolle1, pars_R);
+  prdData.TRi_f1 = [...
+    RT_i_15_Fay1;
+    RT_i_20_Fay1;
+    RT_i_25_Fay1
+  ];
+  %TRi_f2 
+
+  RT_i_15_Fay2 = TC_15 * reprod_rate(L_i, f_Fayolle2, pars_R);
+  RT_i_20_Fay2 = TC_20 * reprod_rate(L_i, f_Fayolle2, pars_R);
+  RT_i_25_Fay2 = TC_25 * reprod_rate(L_i, f_Fayolle2, pars_R);
+  prdData.TRi_f2 = [...
+    RT_i_15_Fay2;
+    RT_i_20_Fay2;
+    RT_i_25_Fay2
+  ];
+
+
+end 
 
 
 
