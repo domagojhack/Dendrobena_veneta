@@ -129,7 +129,7 @@ temp.Wwp2 = C2K(27);
 units.Wwp2 = 'g';
 label.Wwp2 = 'ultimate wet weight';
 bibkey.Wwp2 = "Gezahegn2024";
-comment.Wwp2 = 'Maximum body weight from Gezahegn et al. 2024, '
+comment.Wwp2 = 'Maximum body weight from Gezahegn et al. 2024, ';
 
 %Hackenberger DK, Hackenberger DK, Đerđ T, Hackenberger BK. ErIK-a software-based identification key for earthworm species of Croatia. Zootaxa. 2019 Jun 6;4613(3):zootaxa.4613.3.11. doi: 10.11646/zootaxa.4613.3.11. PMID: 31716407.
 
@@ -339,7 +339,7 @@ data.tW_Vilj_3 = [
     195 1621.46;
     200 1685.15
 ];
-data.tW_Vilj_3(:,2) = data.tW_Vilj_3(:,2) / 1000; % convert to g
+data.tW_Vilj_3(:, 2) = data.tW_Vilj_3(:,2) / 1000; % convert to g
 units.tW_Vilj_3   = {'d', 'g'};  
 label.tW_Vilj_3 = {'time', 'wet weight'};
 temp.tW_Vilj_3    = C2K(15);  
@@ -364,7 +364,7 @@ data.tW_podolak = [ ... % time (d), wet weight (g) at 0 g/kg TEB
     336 2.61;
     364 2.28
 ];
-units.tW_podolak   = {'d', 'g'};
+units.tW_podolak = {'d', 'g'};
 label.tW_podolak = {'time', 'wet weight'};
 temp.tW_podolak    = C2K(18);
 units.temp.tW_podolak = 'K';
@@ -382,7 +382,6 @@ data.tW_Kova = [ ... % time (d), wet weight (g) at 0 mg/kg TEB
     105 1.89
     126 2.0
     197 2.29
-
 ];
 units.tW_Kova   = {'d', 'g'};  
 label.tW_Kova = {'time', 'wet weight'};
@@ -407,7 +406,7 @@ data.tW_Fayolle1 = [...
     140 2.26;
     160 2.3;
     190 2.35
-]
+];
 units.tW_Fayolle1   = {'d', 'g'};
 label.tW_Fayolle1 = {'time', 'wet weight'};
 temp.tW_Fayolle1    = C2K(10);
@@ -429,7 +428,7 @@ data.tW_Fayolle2 = [...
     140 2.5;
     160 2.71;
     190 2.72
-]
+];
 units.tW_Fayolle2   = {'d', 'g'};
 label.tW_Fayolle2 = {'time', 'wet weight'};
 temp.tW_Fayolle2    = C2K(15);
@@ -451,7 +450,7 @@ data.tW_Fayolle3 = [...
     140 2.73;
     160 2.74;
     190 2.76
-]
+];
 units.tW_Fayolle3   = {'d', 'g'};
 label.tW_Fayolle3 = {'time', 'wet weight'};
 temp.tW_Fayolle3    = C2K(20);
@@ -473,7 +472,7 @@ data.tW_Fayolle4 = [...
     140 2.63;
     160 2.8;
     190 2.78
-]
+];
 units.tW_Fayolle4   = {'d', 'g'};
 label.tW_Fayolle4 = {'time', 'wet weight'};
 temp.tW_Fayolle4    = C2K(25);
@@ -496,7 +495,7 @@ data.tW_Fayolle5 = [...
     140 1.64;
     160 1.89;
     190 1.97
-]
+];
 units.tW_Fayolle5   = {'d', 'g'};
 label.tW_Fayolle5 = {'time', 'wet weight'};
 temp.tW_Fayolle5    = C2K(10);
@@ -518,7 +517,7 @@ data.tW_Fayolle6 = [
     140 1.78;
     160 1.88;
     190 2.02;
-]
+];
 units.tW_Fayolle6   = {'d', 'g'};
 label.tW_Fayolle6 = {'time', 'wet weight'};
 temp.tW_Fayolle6    = C2K(15);
@@ -540,7 +539,7 @@ data.tW_Fayolle7 = [
     140 2.03;
     160 2.13;
     190 1.82
-]
+];
 units.tW_Fayolle7   = {'d', 'g'};
 label.tW_Fayolle7 = {'time', 'wet weight'};
 temp.tW_Fayolle7    = C2K(20);
@@ -563,7 +562,7 @@ data.tW_Fayolle8 = [
     140 1.9;
     160 2.04;
     190 2.11
-]
+];
 units.tW_Fayolle8   = {'d', 'g'};
 label.tW_Fayolle8 = {'time', 'wet weight'};
 temp.tW_Fayolle8    = C2K(25);
@@ -577,7 +576,7 @@ data.TRi_f1=[...
     15  0.37;
     20  0.35;
     25  0.57;
-]
+];
 % convert from °C to K
 data.TRi_f1(:,1) = C2K(data.TRi_f1(:,1));
 units.TRi_f1 = {'K', 'cocoons/worm/d'};
@@ -590,7 +589,7 @@ data.TRi_f2=[...
     15  0.57;
     20  0.68;
     25  0.74;
-]
+];
 % convert from °C to K
 data.TRi_f2(:,1) = C2K(data.TRi_f2(:,1));
 units.TRi_f2 = {'K', 'cocoons/worm/d'};
