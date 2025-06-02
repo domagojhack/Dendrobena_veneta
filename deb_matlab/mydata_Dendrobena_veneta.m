@@ -572,7 +572,7 @@ bibkey.tW_Fayolle8 = 'Fayolle1997';
 comment.tW_Fayolle8='Digitized from Fayolle1997 Fig2, horse manure, 25°C';
 
 
-data.TRi_f1=[...
+data.TRi_f1=[
     15  0.37;
     20  0.35;
     25  0.57;
@@ -585,7 +585,7 @@ bibkey.TRi_f1 = 'Fayolle1997';
 comment.TRi_f1 = 'Digitized from Fayolle1997 Table2, Horse manure';
 
 
-data.TRi_f2=[...
+data.TRi_f2=[
     15  0.57;
     20  0.68;
     25  0.74;
@@ -628,8 +628,12 @@ txtData.label = label;
 txtData.bibkey = bibkey;
 txtData.comment = comment;
 
+%% Group plots
+% set1 = {'tL2','tL1'}; subtitle1 = {'Growth at two culture sites'};
+
+
 %% Group plots (separated subplots)
-set1 = {'tW_Vilj'}; subtitle1 = {'Growth: Viljoen et al. 1991'};
+set1 = {'tW_Vilj', 'tW_Vilj_2', 'tW_Vilj_3'}; subtitle1 = {'Growth: Viljoen et al. 1991'};
 set2 = {'tW_Vilj_2'}; subtitle2 = {'Growth: Viljoen et al. 1992'};
 set3 = {'tW_Vilj_3'}; subtitle3 = {'Growth: Viljoen et al. 1992 (15°C)'};
 set4 = {'tW_podolak'}; subtitle4 = {'Growth: Podolak 2020'};

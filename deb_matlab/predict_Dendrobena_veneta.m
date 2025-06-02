@@ -17,7 +17,10 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   TC_18     = tempcorr(auxData.temp.Ri_18,  par.T_ref, par.T_A);
   TC_27     = tempcorr(auxData.temp.Ri_27,  par.T_ref, par.T_A);
   TC_10     = tempcorr(auxData.temp.tW_Fayolle1,  par.T_ref, par.T_A);
+
   
+  TC_Ri     = tempcorr(TRi_f1,  par.T_ref, par.T_A);
+
   % zero-variate predictions
 
   % life cycle
@@ -211,24 +214,13 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   %TRi_f1
   % RT_i_27 = TC_18 * reprod_rate(L_i, f_Geza, pars_R);
 
-  RT_i_15_Fay1 = TC_15 * reprod_rate(L_i, f_Fayolle1, pars_R);
-  RT_i_20_Fay1 = TC_20 * reprod_rate(L_i, f_Fayolle1, pars_R);
-  RT_i_25_Fay1 = TC_25 * reprod_rate(L_i, f_Fayolle1, pars_R);
-  prdData.TRi_f1 = [...
-    RT_i_15_Fay1;
-    RT_i_20_Fay1;
-    RT_i_25_Fay1
-  ];
-  %TRi_f2 
+  Ri_Fay1 = reprod_rate(L_i, f_Fayolle1, pars_R);
+  prdData.TRi_f1 = Ri_Fay1 * TC_Ri;
 
-  RT_i_15_Fay2 = TC_15 * reprod_rate(L_i, f_Fayolle2, pars_R);
-  RT_i_20_Fay2 = TC_20 * reprod_rate(L_i, f_Fayolle2, pars_R);
-  RT_i_25_Fay2 = TC_25 * reprod_rate(L_i, f_Fayolle2, pars_R);
-  prdData.TRi_f2 = [...
-    RT_i_15_Fay2;
-    RT_i_20_Fay2;
-    RT_i_25_Fay2
-  ];
+  Ri_Fay2 = reprod_rate(L_i, f_Fayolle1, pars_R);
+  prdData.TRi_f2 = Ri_Fay2 * TC_Ri;
+
+  
 
 
 end 
