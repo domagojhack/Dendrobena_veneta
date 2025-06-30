@@ -164,7 +164,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   prdData.tW_Fayolle2 = EWw_Fayolle2;
 
   % tw_Fayolle3
-  f = f_Fayolle1; TC = TC_15;
+  f = f_Fayolle1; TC = TC_20;
   ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
   L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
   L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle3(:,1));
@@ -172,7 +172,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   prdData.tW_Fayolle3 = EWw_Fayolle3;
 
   % tw_Fayolle4
-  f = f_Fayolle1; TC = TC_15;
+  f = f_Fayolle1; TC = TC_25;
   ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
   L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
   L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle4(:,1));
@@ -180,7 +180,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   prdData.tW_Fayolle4 = EWw_Fayolle4;
 
   % tw Fayolle5
-  f = f_Fayolle2; TC = TC_15;
+  f = f_Fayolle2; TC = TC_10;
   ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
   L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
   L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle5(:,1));
@@ -196,7 +196,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   prdData.tW_Fayolle6 = EWw_Fayolle6;
 
   % tw Fayolle7
-  f = f_Fayolle2; TC = TC_15;
+  f = f_Fayolle2; TC = TC_20;
   ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
   L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
   L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle7(:,1));
@@ -204,7 +204,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   prdData.tW_Fayolle7 = EWw_Fayolle7;
 
   % tw Fayolle8
-  f = f_Fayolle2; TC = TC_15;
+  f = f_Fayolle2; TC = TC_25;
   ir_B = 3/ k_M + 3 * f * L_m/ v; rT_B = TC/ ir_B;
   L_i = L_m * (f - l_T); L_b = L_m * get_lb([g k v_Hb], f);
   L = L_i - (L_i - L_b) * exp( - rT_B * tW_Fayolle8(:,1));
@@ -217,7 +217,7 @@ function [prdData, info] = predict_Dendrobena_veneta(par, data, auxData)
   Ri_Fay1 = reprod_rate(L_i, f_Fayolle1, pars_R);
   prdData.TRi_f1 = Ri_Fay1 * TC_Ri;
 
-  Ri_Fay2 = reprod_rate(L_i, f_Fayolle1, pars_R);
+  Ri_Fay2 = reprod_rate(L_i, f_Fayolle2, pars_R);
   prdData.TRi_f2 = Ri_Fay2 * TC_Ri;
 
   

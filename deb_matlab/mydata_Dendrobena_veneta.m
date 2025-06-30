@@ -20,7 +20,7 @@ metaData.ecoCode.reprod  = {'O'};
 metaData.T_typical  = C2K(20); % K, body temp
 metaData.data_0     = {'ab'; 'ap'; 'am'; 'Lb'; 'Lp'; 'Li'; 'Wwb'; 'Wwp'; 'Wwi'; 'Ri'}; 
 metaData.data_1     = {'tW_Vilj', 'tW_data1', 'tW_kovacevic', 'tR_viljoen', 'tR_morgan', 'tRrate_data1', 'T_Ri', 'T_ab', 'T_hs'};
-metaData.COMPLETE = 2.5; % using criteria of LikaKear2011
+metaData.COMPLETE = 2; % using criteria of LikaKear2011
 
 metaData.author   = {"Domagoj K. Hackenberger", "Sunčana Geček"};    
 metaData.date_subm = [2025 05 27];              
@@ -601,11 +601,11 @@ comment.TRi_f2 = 'Digitized from Fayolle1997 Table2, Paper sludge';
 %% set weights for all real data
 weights = setweights(data, []);
 
-weights.tW_Vilj = 10 * weights.tW_Vilj;
-weights.tW_Vilj_2 = 15 * weights.tW_Vilj_2;
-weights.tW_Vilj_3 = 15 * weights.tW_Vilj_3;
-weights.tW_podolak = 5 * weights.tW_podolak;
-weights.tW_Kova = 5 * weights.tW_Kova; 
+weights.tW_Vilj = 3 * weights.tW_Vilj;
+weights.tW_Vilj_2 = 3 * weights.tW_Vilj_2;
+weights.tW_Vilj_3 = 3 * weights.tW_Vilj_3;
+% weights.tW_podolak = 2 * weights.tW_podolak;
+weights.tW_Kova = 1 * weights.tW_Kova; 
 weights.tW_Fayolle1 = 5 * weights.tW_Fayolle1;
 weights.tW_Fayolle2 = 5 * weights.tW_Fayolle2;
 weights.tW_Fayolle3 = 5 * weights.tW_Fayolle3;
@@ -614,12 +614,12 @@ weights.tW_Fayolle5 = 5 * weights.tW_Fayolle5;
 weights.tW_Fayolle6 = 5 * weights.tW_Fayolle6;
 weights.tW_Fayolle7 = 5 * weights.tW_Fayolle7;
 weights.tW_Fayolle8 = 5 * weights.tW_Fayolle8;
-weights.TRi_f1 = 3 * weights.TRi_f1;
-weights.TRi_f2 = 3 * weights.TRi_f2;
+weights.TRi_f1 = 2 * weights.TRi_f1;
+weights.TRi_f2 = 2 * weights.TRi_f2;
 
 % set pseudodata and respective weights
 [data, units, label, weights] = addpseudodata(data, units, label, weights);
-weights.psd.p_M = 10 * weights.psd.p_M;
+% weights.psd.p_M = 5 * weights.psd.p_M;
 
 %% pack auxData and txtData for output
 auxData.temp = temp;
@@ -631,24 +631,23 @@ txtData.comment = comment;
 %% Group plots
 % set1 = {'tL2','tL1'}; subtitle1 = {'Growth at two culture sites'};
 
-
-%% Group plots (separated subplots)
-set1 = {'tW_Vilj', 'tW_Vilj_2', 'tW_Vilj_3'}; subtitle1 = {'Growth: Viljoen et al. 1991'};
-set2 = {'tW_Vilj_2'}; subtitle2 = {'Growth: Viljoen et al. 1992'};
-set3 = {'tW_Vilj_3'}; subtitle3 = {'Growth: Viljoen et al. 1992 (15°C)'};
+% Group plots (separated subplots)
+set1 = {'tW_Vilj', }; subtitle1 = {'Growth: Viljoen et al. 1991'};
+set2 = {'tW_Vilj_2', 'tW_Vilj_3'}; subtitle2 = {'Growth: Viljoen et al. 1992'};
+% set2 = {'tW_Vilj_2'}; subtitle2 =
+% set3 = {'tW_Vilj_3'}; subtitle3 = {'Growth: Viljoen et al. 1992 (15°C)'};
 set4 = {'tW_podolak'}; subtitle4 = {'Growth: Podolak 2020'};
 set5 = {'tW_Kova'}; subtitle5 = {'Growth: Kovacevic 2023'};
-set6 = {'tW_Fayolle1', 'tW_Fayolle2', 'tW_Fayolle3', 'tW_Fayolle4', ...
-        'tW_Fayolle5', 'tW_Fayolle6', 'tW_Fayolle7', 'tW_Fayolle8'};
-subtitle6 = {'Growth: Fayolle et al. 1997'};
-set7 = {'TRi_f1', 'TRi_f2'}; subtitle7 = {'Reproduction rate: Fayolle1997'};
+set6 = {'tW_Fayolle1', 'tW_Fayolle2', 'tW_Fayolle3', 'tW_Fayolle4'}; subtitle6 = {'Growth: Fayolle et al. 1997'};
+set7 = {'tW_Fayolle5', 'tW_Fayolle6', 'tW_Fayolle7', 'tW_Fayolle8'}; subtitle7 = {'Growth: Fayolle et al. 1997'};
+set8 = {'TRi_f1', 'TRi_f2'}; subtitle8 = {'Reproduction rate: Fayolle1997'};
 
-metaData.grp.sets = {set1, set2, set3, set4, set5, set6, set7};
-metaData.grp.subtitle = {subtitle1, subtitle2, subtitle3, subtitle4, subtitle5, subtitle6, subtitle7};
+metaData.grp.sets = {set1, set2, set4, set5, set6, set7, set8}; % set2, set3,
+metaData.grp.subtitle = {subtitle1, subtitle2,  subtitle4, subtitle5, subtitle6, subtitle7, subtitle8}; % subtitle2, subtitle3,
 % set2 = {'tR_viljoen'}; subtitle2 = {'Cumulative reproduction: Viljoen et al. 1991'};
 % set3 = {'tRrate_data1'}; subtitle3 = {'Reproduction rate: Viljoen et al. 1991'};
-metaData.grp.sets = {set1};
-metaData.grp.subtitle = {subtitle1};
+% metaData.grp.sets = {set1, set6, set8, set7};
+% metaData.grp.subtitle = {subtitle1, subtitle6, subtitle8, subtitle7};
 
 %% Discussion points
 D1 = 'We assume kap_R 0 0.95/2 for consistency with how all hermaphrodites are treated in the collection';
